@@ -12,9 +12,9 @@ export function Section({
   return (
     <section
       id={id}
-      className={`scroll-mt-24 border-t border-border/60 py-24 sm:py-32 ${className}`}
+      className={`scroll-mt-24 border-t border-border/60 py-20 sm:py-32 ${className}`}
     >
-      <div className="mx-auto w-full max-w-content px-6">{children}</div>
+      <div className="mx-auto w-full max-w-content px-5 sm:px-6">{children}</div>
     </section>
   );
 }
@@ -23,15 +23,26 @@ export function SectionHeader({
   eyebrow,
   title,
   intro,
+  index,
 }: {
   eyebrow: string;
   title: string;
   intro?: string;
+  index?: string;
 }) {
   return (
     <div className="max-w-2xl">
-      <span className="eyebrow">{eyebrow}</span>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+      <div className="flex items-center gap-3">
+        {index ? (
+          <span className="font-mono text-xs text-text-muted">{index}</span>
+        ) : null}
+        <span className="eyebrow">{eyebrow}</span>
+        <span
+          className="h-px flex-1 bg-gradient-to-r from-border to-transparent"
+          aria-hidden
+        />
+      </div>
+      <h2 className="mt-5 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
         {title}
       </h2>
       {intro ? (

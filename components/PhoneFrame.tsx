@@ -22,7 +22,7 @@ export function PhoneFrame({
 }) {
   const [failed, setFailed] = useState(false);
   const width =
-    size === "sm" ? "w-[136px] sm:w-[180px]" : "w-[180px] sm:w-[210px]";
+    size === "sm" ? "w-[112px] sm:w-[180px]" : "w-[160px] sm:w-[210px]";
 
   return (
     <div

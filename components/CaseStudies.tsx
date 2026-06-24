@@ -10,6 +10,7 @@ export function CaseStudies() {
     <Section id="proiecte">
       <Reveal>
         <SectionHeader
+          index="02"
           eyebrow="Proiecte"
           title="Proiecte, fiecare ca o poveste: de la problemă la rezultat."
           intro="Fiecare proiect e o demonstrație de end-to-end: ce problemă a fost, ce am construit și ce a ieșit."
@@ -169,12 +170,12 @@ function CaseStudyBlock({ study }: { study: CaseStudy }) {
               {study.phoneCompare.pairs.map((pair) => (
                 <div
                   key={pair.label}
-                  className="rounded-2xl border border-border bg-surface/40 p-6 sm:p-8"
+                  className="rounded-2xl border border-border bg-surface/40 p-4 sm:p-8"
                 >
                   <p className="mb-6 text-center text-sm text-text-secondary">
                     {pair.label}
                   </p>
-                  <div className="flex items-start justify-center gap-4 sm:gap-10">
+                  <div className="flex items-start justify-center gap-3 sm:gap-10">
                     <div className="flex flex-col items-center gap-3">
                       <span className="inline-block rounded border border-border bg-surface px-2 py-0.5 font-mono text-[11px] uppercase tracking-wider text-text-muted">
                         Before

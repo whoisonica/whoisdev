@@ -19,6 +19,9 @@ body {
   background-color: #0a0a0b;
   color: #ededed;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  /* Previne scroll-ul orizontal cauzat de gradientele/blob-urile decorative
+     care depășesc viewportul pe ecrane înguste */
+  overflow-x: hidden;
 }
 
 /* Respectă preferința utilizatorului pentru mișcare redusă */
@@ -63,6 +66,17 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #2c2c32;
+}
+
+/* Textură fină de grain peste tot pentru un look premium.
+   Fixă, deasupra fundalului dar sub conținut, ignoră interacțiunile. */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @layer components {

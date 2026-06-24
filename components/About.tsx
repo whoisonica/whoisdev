@@ -8,6 +8,7 @@ export function About() {
     <Section id="despre">
       <Reveal>
         <SectionHeader
+          index="01"
           eyebrow="Despre"
           title="Full-stack, de la idee la producție."
           intro="Sunt dezvoltator full-stack din Oradea. Acopăr tot lanțul: mobil, web și backend — ceea ce înseamnă că pot duce un produs de la primul wireframe până la deploy, fără cusături între straturi."

@@ -8,6 +8,7 @@ export function Services() {
     <Section id="servicii">
       <Reveal>
         <SectionHeader
+          index="03"
           eyebrow="Servicii"
           title="Cu ce te pot ajuta."
           intro="Trei zone, un singur dezvoltator — fără handoff-uri pierdute între echipe."

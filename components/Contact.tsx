@@ -24,9 +24,9 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 border-t border-border/60 py-24 sm:py-32"
+      className="scroll-mt-24 overflow-hidden border-t border-border/60 py-20 sm:py-32"
     >
-      <div className="relative mx-auto w-full max-w-content px-6">
+      <div className="relative mx-auto w-full max-w-content px-5 sm:px-6">
         <div
           className="pointer-events-none absolute left-1/2 top-0 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-50 blur-[120px]"
           style={{
@@ -56,7 +56,7 @@ export function Contact() {
               </a>
             </div>
 
-            <div className="mt-5 flex items-center justify-center gap-3">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={site.socials.github}
                 target="_blank"

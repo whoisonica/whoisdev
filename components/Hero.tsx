@@ -33,15 +33,19 @@ export function Hero() {
 
       <motion.div
         style={{ y, opacity }}
-        className="relative mx-auto flex min-h-[100svh] max-w-content flex-col justify-center px-6 pb-20 pt-32"
+        className="relative mx-auto flex min-h-[100svh] max-w-content flex-col justify-center px-5 pb-20 pt-28 sm:px-6 sm:pt-32"
       >
         <LoadIn delay={0.05}>
-          <span className="eyebrow inline-flex items-center gap-2">
-            <span className="relative flex h-1.5 w-1.5">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 py-1.5 pl-2.5 pr-3.5 backdrop-blur">
+            <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            {site.role} · {site.location}
+            <span className="font-mono text-xs tracking-wide text-text-secondary">
+              <span className="text-text-primary">Disponibil pentru proiecte</span>
+              <span className="mx-2 text-text-muted">·</span>
+              {site.location}
+            </span>
           </span>
         </LoadIn>
 
@@ -110,7 +114,7 @@ export function Hero() {
         </LoadIn>
 
         <LoadIn delay={0.75}>
-          <div className="mt-16">
+          <div className="mt-12 sm:mt-16">
             <TechMarquee />
           </div>
         </LoadIn>

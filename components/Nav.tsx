@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { site } from "@/lib/site";
 
 const links = [
@@ -14,6 +14,7 @@ const links = [
 export function Nav() {
   const reduce = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -21,6 +22,14 @@ export function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Blochează scroll-ul body cât timp meniul mobil e deschis
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <motion.header
@@ -30,18 +39,24 @@ export function Nav() {
       className="fixed inset-x-0 top-0 z-40"
     >
       <div
-        className={`mx-auto flex max-w-content items-center justify-between px-6 transition-all duration-300 ${
-          scrolled ? "py-3" : "py-5"
+        className={`mx-auto flex max-w-content items-center justify-between px-5 transition-all duration-300 sm:px-6 ${
+          scrolled || open ? "py-3" : "py-5"
+        } ${
+          scrolled || open
+            ? "bg-bg/80 backdrop-blur-md"
+            : "bg-transparent"
         }`}
       >
         <a
           href="#top"
+          onClick={() => setOpen(false)}
           className="group flex items-center gap-2 font-mono text-sm font-medium text-text-primary"
         >
           <span className="inline-block h-2 w-2 rounded-full bg-accent transition-transform duration-300 group-hover:scale-125" />
           {site.brand}
         </a>
 
+        {/* Navigație desktop */}
         <nav className="hidden items-center gap-1 sm:flex">
           {links.map((link) => (
             <a
@@ -60,16 +75,70 @@ export function Nav() {
           </a>
         </nav>
 
-        <a
-          href="#contact"
-          className="rounded-md border border-border bg-surface px-3.5 py-2 text-sm font-medium text-text-primary transition-colors hover:border-accent/50 hover:text-accent sm:hidden"
+        {/* Buton hamburger — doar pe mobil */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Închide meniul" : "Deschide meniul"}
+          aria-expanded={open}
+          className="relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-surface text-text-primary transition-colors hover:border-accent/50 sm:hidden"
         >
-          Contact
-        </a>
+          <span className="sr-only">Meniu</span>
+          <span className="relative block h-4 w-5" aria-hidden>
+            <span
+              className={`absolute left-0 block h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${
+                open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0.5"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 rounded-full bg-current transition-all duration-200 ${
+                open ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 block h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${
+                open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0.5"
+              }`}
+            />
+          </span>
+        </button>
       </div>
+
+      {/* Meniu mobil overlay */}
+      <AnimatePresence>
+        {open ? (
+          <motion.nav
+            key="mobile-menu"
+            initial={reduce ? { opacity: 1 } : { opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-3 overflow-hidden rounded-xl border border-border bg-surface/95 p-2 backdrop-blur-md sm:hidden"
+          >
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-lg px-4 py-3 text-base text-text-secondary transition-colors hover:bg-surface-2 hover:text-text-primary"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-1 block rounded-lg bg-accent px-4 py-3 text-center text-base font-medium text-white transition-colors hover:bg-accent-hover"
+            >
+              Hai să lucrăm împreună
+            </a>
+          </motion.nav>
+        ) : null}
+      </AnimatePresence>
+
       <div
         className={`h-px w-full bg-gradient-to-r from-transparent via-border to-transparent transition-opacity duration-300 ${
-          scrolled ? "opacity-100" : "opacity-0"
+          scrolled && !open ? "opacity-100" : "opacity-0"
         }`}
       />
     </motion.header>
