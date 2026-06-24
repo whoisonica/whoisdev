@@ -1,41 +1,75 @@
 "use client";
 
 import { useRef, type ReactNode, type MouseEvent } from "react";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 /**
- * Card cu glow radial care urmărește cursorul pe margine + suprafață.
- * Efectul vizual e pur CSS (vezi .spotlight-card în globals.css); aici doar
- * actualizăm variabilele --mx/--my. Inofensiv cu prefers-reduced-motion
- * (e doar hover, fără mișcare automată).
+ * Card cu glow radial care urmărește cursorul pe margine + suprafață
+ * (efect CSS, vezi .spotlight-card în globals.css), plus tilt 3D opțional:
+ * cardul se înclină ușor după poziția cursorului și se ridică la hover.
+ * Tilt-ul e dezactivat la prefers-reduced-motion.
  */
 export function SpotlightCard({
   children,
   className = "",
-  as: Tag = "div",
+  as = "div",
+  tilt = false,
 }: {
   children: ReactNode;
   className?: string;
   as?: "div" | "li" | "article";
+  tilt?: boolean;
 }) {
+  const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
+
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const ty = useMotionValue(0);
+  const srx = useSpring(rx, { stiffness: 170, damping: 16 });
+  const sry = useSpring(ry, { stiffness: 170, damping: 16 });
+  const sty = useSpring(ty, { stiffness: 220, damping: 20 });
+
+  const useTilt = tilt && !reduce;
 
   function handleMove(e: MouseEvent) {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    el.style.setProperty("--mx", `${mx}px`);
+    el.style.setProperty("--my", `${my}px`);
+    if (useTilt) {
+      const px = mx / rect.width - 0.5;
+      const py = my / rect.height - 0.5;
+      ry.set(px * 9);
+      rx.set(-py * 9);
+      ty.set(-5);
+    }
   }
 
-  const Component = Tag as "div";
+  function reset() {
+    rx.set(0);
+    ry.set(0);
+    ty.set(0);
+  }
+
+  const MotionTag = motion[as] as typeof motion.div;
 
   return (
-    <Component
+    <MotionTag
       ref={ref as React.RefObject<HTMLDivElement>}
       onMouseMove={handleMove}
+      onMouseLeave={reset}
+      style={
+        useTilt
+          ? { rotateX: srx, rotateY: sry, y: sty, transformPerspective: 900 }
+          : undefined
+      }
       className={`spotlight-card ${className}`}
     >
       {children}
-    </Component>
+    </MotionTag>
   );
 }

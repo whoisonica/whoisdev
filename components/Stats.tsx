@@ -1,4 +1,5 @@
 import { Reveal, Stagger, StaggerItem } from "./motion";
+import { CountUp } from "./CountUp";
 
 const stats = [
   { value: "10M+", label: "Înregistrări integrate", sub: "Inventar hotelier la scară" },
@@ -16,11 +17,16 @@ export function Stats() {
             {stats.map((s) => (
               <StaggerItem
                 key={s.label}
-                className="group flex flex-col gap-1.5 px-5 py-8 transition-colors duration-300 hover:bg-surface/40 sm:px-6 sm:py-10"
+                className="group relative flex flex-col gap-1.5 px-5 py-8 transition-colors duration-300 hover:bg-surface/40 sm:px-6 sm:py-10"
               >
-                <span className="text-3xl font-semibold tracking-tight text-text-primary transition-colors group-hover:text-accent sm:text-4xl">
-                  {s.value}
-                </span>
+                <span
+                  className="absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-accent to-transparent transition-transform duration-500 group-hover:scale-x-100"
+                  aria-hidden
+                />
+                <CountUp
+                  value={s.value}
+                  className="text-3xl font-semibold tracking-tight text-text-primary transition-colors group-hover:text-accent sm:text-4xl"
+                />
                 <span className="text-sm font-medium text-text-primary">
                   {s.label}
                 </span>

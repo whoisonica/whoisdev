@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
+import { CursorGlow } from "@/components/CursorGlow";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -67,6 +68,7 @@ export default function RootLayout({
     <html lang="ro" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="bg-bg text-text-primary font-sans antialiased">
         <div className="noise-overlay" aria-hidden />
+        <CursorGlow />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"

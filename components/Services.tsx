@@ -1,6 +1,7 @@
 import { Section, SectionHeader } from "./Section";
 import { Reveal, Stagger, StaggerItem } from "./motion";
 import { SpotlightCard } from "./SpotlightCard";
+import { Hi } from "./Highlight";
 import { services } from "@/lib/site";
 
 export function Services() {
@@ -11,14 +12,22 @@ export function Services() {
           index="03"
           eyebrow="Servicii"
           title="Cu ce te pot ajuta."
-          intro="Trei zone, un singur dezvoltator — fără handoff-uri pierdute între echipe."
+          intro={
+            <>
+              Trei zone, <Hi>un singur dezvoltator</Hi> — fără handoff-uri pierdute
+              între echipe.
+            </>
+          }
         />
       </Reveal>
 
       <Stagger className="mt-14 grid gap-4 md:grid-cols-3">
         {services.map((service, i) => (
           <StaggerItem key={service.title} className="h-full">
-            <SpotlightCard className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface p-7 transition-all duration-300 hover:border-accent/40 hover:bg-surface-2">
+            <SpotlightCard
+              tilt
+              className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface p-7 transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent/40 hover:bg-surface-2 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.85)]"
+            >
               <span className="font-mono text-xs text-text-muted">0{i + 1}</span>
               <h3 className="mt-4 text-xl font-semibold text-text-primary transition-colors group-hover:text-accent">
                 {service.title}

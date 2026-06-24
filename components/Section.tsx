@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { WordReveal } from "./WordReveal";
 
 export function Section({
   id,
@@ -27,7 +28,7 @@ export function SectionHeader({
 }: {
   eyebrow: string;
   title: string;
-  intro?: string;
+  intro?: ReactNode;
   index?: string;
 }) {
   return (
@@ -38,12 +39,12 @@ export function SectionHeader({
         ) : null}
         <span className="eyebrow">{eyebrow}</span>
         <span
-          className="h-px flex-1 bg-gradient-to-r from-border to-transparent"
+          className="hairline h-px flex-1"
           aria-hidden
         />
       </div>
       <h2 className="mt-5 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
-        {title}
+        <WordReveal text={title} />
       </h2>
       {intro ? (
         <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">

@@ -8,11 +8,13 @@ export function Footer() {
           href="#top"
           className="group flex items-center gap-2 font-mono text-sm text-text-secondary transition-colors hover:text-text-primary"
         >
-          <span className="inline-block h-2 w-2 rounded-full bg-accent transition-transform duration-300 group-hover:scale-125" />
+          <span className="text-text-muted">~/</span>
           {site.brand}
+          <span className="text-accent">$</span>
         </a>
-        <p className="order-last text-center text-xs text-text-muted sm:order-none">
-          {site.location} · Construit cu Next.js, TypeScript &amp; Tailwind
+        <p className="order-last text-center font-mono text-xs text-text-muted sm:order-none">
+          <span className="text-accent/50">{"//"}</span> {site.location} · built with
+          Next.js, TypeScript &amp; Tailwind
         </p>
         <div className="flex items-center gap-5">
           <a

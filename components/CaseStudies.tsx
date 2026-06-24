@@ -1,5 +1,6 @@
 import { Section, SectionHeader } from "./Section";
 import { Reveal } from "./motion";
+import { Hi } from "./Highlight";
 import { ImageFrame } from "./ImageFrame";
 import { PhoneFrame } from "./PhoneFrame";
 import { SpotlightCard } from "./SpotlightCard";
@@ -13,7 +14,12 @@ export function CaseStudies() {
           index="02"
           eyebrow="Proiecte"
           title="Proiecte, fiecare ca o poveste: de la problemă la rezultat."
-          intro="Fiecare proiect e o demonstrație de end-to-end: ce problemă a fost, ce am construit și ce a ieșit."
+          intro={
+            <>
+              Fiecare proiect e o demonstrație <Hi>end-to-end</Hi>: ce problemă a
+              fost, ce am construit și ce a ieșit.
+            </>
+          }
         />
       </Reveal>
 
@@ -105,14 +111,13 @@ function CaseStudyBlock({ study }: { study: CaseStudy }) {
       {study.highlights && study.highlights.length > 0 ? (
         <Reveal delay={0.06}>
           <div className="mt-12">
-            <p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-text-muted">
-              Ce am livrat
-            </p>
+            <p className="label-mono mb-5">Ce am livrat</p>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {study.highlights.map((h) => (
                 <SpotlightCard
                   key={h.title}
-                  className="group h-full rounded-xl border border-border bg-surface p-5 transition-colors duration-300 hover:border-accent/40 hover:bg-surface-2"
+                  tilt
+                  className="group h-full rounded-xl border border-border bg-surface p-5 transition-[border-color,background-color,box-shadow] duration-300 hover:border-accent/40 hover:bg-surface-2 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.85)]"
                 >
                   <h4 className="flex items-center gap-2 text-sm font-semibold text-text-primary transition-colors group-hover:text-accent">
                     <span className="h-1 w-1 rounded-full bg-accent" aria-hidden />

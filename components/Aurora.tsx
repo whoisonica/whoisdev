@@ -36,8 +36,18 @@ export function Aurora() {
 
   return (
     <div ref={ref} className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {/* grilă subtilă */}
-      <div className="absolute inset-0 bg-grid opacity-70" />
+      {/* grilă subtilă, plutește lent în diagonală */}
+      <div className="bg-grid animate-grid absolute inset-0 opacity-70" />
+
+      {/* glow central care „respiră" — chiar în spatele titlului */}
+      <div
+        className="aurora-blob absolute left-1/2 top-[18%] h-[420px] w-[560px] rounded-full blur-[100px]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(91,141,239,0.28) 0%, rgba(91,141,239,0) 70%)",
+          animation: "breathe 9s ease-in-out infinite",
+        }}
+      />
 
       {/* blob aurora 1 */}
       <div
@@ -57,13 +67,22 @@ export function Aurora() {
           animation: "aurora-2 22s ease-in-out infinite",
         }}
       />
+      {/* blob aurora 3 — cyan rece, jos-dreapta, pentru echilibru */}
+      <div
+        className="aurora-blob absolute right-[-10%] top-[45%] h-[400px] w-[520px] rounded-full opacity-30 blur-[140px]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(45,212,191,0.22) 0%, rgba(45,212,191,0) 70%)",
+          animation: "aurora-1 26s ease-in-out infinite reverse",
+        }}
+      />
 
       {/* spotlight care urmărește cursorul */}
       <div
         className="absolute inset-0 transition-opacity duration-500"
         style={{
           background:
-            "radial-gradient(500px circle at var(--spot-x, 50%) var(--spot-y, 30%), rgba(91,141,239,0.08), transparent 60%)",
+            "radial-gradient(560px circle at var(--spot-x, 50%) var(--spot-y, 30%), rgba(91,141,239,0.1), transparent 60%)",
         }}
       />
 

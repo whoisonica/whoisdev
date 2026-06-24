@@ -17,6 +17,13 @@ html {
 
 body {
   background-color: #0a0a0b;
+  /* Glow rece, fix, în partea de sus — dă profunzime „premium" întregului site */
+  background-image: radial-gradient(
+    1200px circle at 50% -8%,
+    rgba(91, 141, 239, 0.07),
+    transparent 55%
+  );
+  background-attachment: fixed;
   color: #ededed;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   /* Previne scroll-ul orizontal cauzat de gradientele/blob-urile decorative
@@ -80,9 +87,92 @@ body {
 }
 
 @layer components {
-  /* Eyebrow mono — label-uri mici peste titluri */
+  /* Eyebrow mono — label-uri mici peste titluri, stil comentariu de cod */
   .eyebrow {
     @apply font-mono text-xs uppercase tracking-[0.2em] text-accent;
+  }
+  .eyebrow::before {
+    content: "// ";
+    @apply text-text-muted;
+  }
+
+  /* Caret care clipește, stil terminal */
+  .caret {
+    display: inline-block;
+    width: 0.6ch;
+    height: 1.1em;
+    margin-left: 0.1em;
+    transform: translateY(0.12em);
+    background: theme("colors.accent");
+    animation: blink 1.1s step-end infinite;
+  }
+
+  /* Acolade/brackets decorative în jurul unui element, stil JSX/cod */
+  .bracket {
+    @apply font-mono font-normal text-accent/45;
+  }
+
+  /* Lift discret la hover — ridică ușor cardul + tranziții fine.
+     Combinabil cu .spotlight-card. */
+  .lift {
+    @apply transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out;
+    will-change: transform;
+  }
+  .lift:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 40px -20px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(91, 141, 239, 0.12);
+  }
+
+  /* Sheen care traversează butonul la hover (efect „sticlă lucioasă") */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 75%
+    );
+    transform: translateX(-130%);
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+  .btn-shine:hover::after {
+    transform: translateX(130%);
+  }
+
+  /* Termen tehnic „inline code" — chip mic monospace cu accent */
+  .code-chip {
+    @apply rounded-md border border-accent/25 bg-accent/10 px-1.5 py-0.5 font-mono text-[0.85em] font-medium text-accent;
+    white-space: nowrap;
+  }
+
+  /* Label mono cu bară-accent în față (înlocuiește punctul sec) */
+  .label-mono {
+    @apply relative inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-text-muted;
+  }
+  .label-mono::before {
+    content: "";
+    @apply h-3 w-0.5 rounded-full bg-accent;
+  }
+
+  /* Linie cu degrade animat pentru top de secțiune / accente */
+  .hairline {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(91, 141, 239, 0.5),
+      transparent
+    );
   }
 
   /* Grain / grid subtil de fundal */
@@ -165,6 +255,16 @@ body {
   }
 }
 
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 @keyframes aurora-1 {
   0%,
   100% {
@@ -204,8 +304,44 @@ body {
   }
 }
 
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .animate-marquee {
-  animation: marquee 28s linear infinite;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 38s linear infinite;
+}
+
+/* Grilă care plutește lent în diagonală — dă viață fundalului hero */
+@keyframes grid-pan {
+  to {
+    background-position: 64px 64px;
+  }
+}
+.animate-grid {
+  animation: grid-pan 24s linear infinite;
+}
+
+/* Glow care „respiră" — pulsație lentă de opacitate/scale */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, 0) scale(1.12);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -213,10 +349,18 @@ body {
     animation: none;
     background-position: 0 0;
   }
-  .animate-marquee {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-grid {
+    animation: none;
+  }
+  .caret {
     animation: none;
   }
   .aurora-blob {
     animation: none !important;
+  }
+  .lift:hover {
+    transform: none;
   }
 }

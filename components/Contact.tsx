@@ -1,4 +1,5 @@
 import { Reveal } from "./motion";
+import { Hi } from "./Highlight";
 import { site } from "@/lib/site";
 
 const GitHubIcon = () => (
@@ -42,19 +43,36 @@ export function Contact() {
               Hai să construim ceva împreună.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg">
-              Ai o idee de produs sau un proiect în desfășurare? Scrie-mi — răspund
-              rapid.
+              Ai o idee de produs sau un proiect în desfășurare? Scrie-mi câteva
+              rânduri despre el și îți răspund cu o <Hi>estimare clară</Hi> — fără
+              obligații.
+            </p>
+            <p className="mt-3 font-mono text-xs text-text-muted">
+              <span className="text-accent">●</span> Disponibil pentru 1–2 proiecte
+              noi
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href={`mailto:${site.email}`}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-accent-hover hover:shadow-glow sm:w-auto"
+                className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-accent-hover hover:shadow-glow sm:w-auto"
               >
                 <MailIcon />
                 {site.email}
               </a>
             </div>
+
+            <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-xs text-text-muted">
+              <li className="flex items-center gap-1.5">
+                <span className="text-accent">✓</span> Răspuns în 24h
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="text-accent">✓</span> Estimare gratuită
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="text-accent">✓</span> Fără obligații
+              </li>
+            </ul>
 
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <a

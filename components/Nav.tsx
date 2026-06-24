@@ -15,12 +15,31 @@ export function Nav() {
   const reduce = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Evidențiază în meniu secțiunea aflată în dreptul ecranului
+  useEffect(() => {
+    const ids = links.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   // Blochează scroll-ul body cât timp meniul mobil e deschis
@@ -58,18 +77,37 @@ export function Nav() {
 
         {/* Navigație desktop */}
         <nav className="hidden items-center gap-1 sm:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-md px-3 py-2 text-sm text-text-secondary transition-colors hover:text-text-primary"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const isActive = active === link.href.slice(1);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative rounded-md px-3 py-2 text-sm transition-colors ${
+                  isActive
+                    ? "text-text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                {isActive ? (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute inset-0 -z-10 rounded-md border border-border bg-surface"
+                    transition={
+                      reduce
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 380, damping: 32 }
+                    }
+                    aria-hidden
+                  />
+                ) : null}
+                {link.label}
+              </a>
+            );
+          })}
           <a
             href="#contact"
-            className="ml-2 rounded-md border border-border bg-surface px-3.5 py-2 text-sm font-medium text-text-primary transition-colors hover:border-accent/50 hover:text-accent"
+            className="ml-2 rounded-md border border-accent/40 bg-accent/10 px-3.5 py-2 text-sm font-medium text-accent transition-colors hover:border-accent/60 hover:bg-accent/20"
           >
             Contact
           </a>

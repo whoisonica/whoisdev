@@ -281,6 +281,33 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
+// Testimoniale — DOVADĂ SOCIALĂ (cel mai puternic levier de conversie).
+// ⚠️ Înlocuiește textele de mai jos cu citate REALE de la clienți.
+//    Nume + rol/companie reale = credibilitate. Lasă doar cele pe care le ai;
+//    secțiunea se ascunde automat dacă lista e goală.
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  // opțional: inițiale pentru avatar (ex. "A.P."); dacă lipsesc, se generează din nume
+  initials?: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "TODO: pune aici un citat real de la un client — concret, despre rezultat (ex. „A dus aplicația din MVP în App Store în X săptămâni, cu zero probleme la lansare.”).",
+    name: "Nume Client",
+    role: "Rol · Companie",
+  },
+  {
+    quote:
+      "TODO: al doilea testimonial real. Ideal menționează comunicarea, respectarea termenelor sau impactul în business.",
+    name: "Nume Client",
+    role: "Rol · Companie",
+  },
+];
+
 export const services = [
   {
     title: "Web apps",

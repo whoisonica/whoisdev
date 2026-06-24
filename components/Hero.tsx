@@ -11,6 +11,8 @@ import { LoadIn } from "./motion";
 import { Aurora } from "./Aurora";
 import { MagneticButton } from "./MagneticButton";
 import { TechMarquee } from "./TechMarquee";
+import { Typewriter } from "./Typewriter";
+import { Hi } from "./Highlight";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -42,7 +44,8 @@ export function Hero() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="font-mono text-xs tracking-wide text-text-secondary">
-              <span className="text-text-primary">Disponibil pentru proiecte</span>
+              <span className="text-accent">$</span>{" "}
+              <span className="text-text-primary">disponibil · 1–2 proiecte noi</span>
               <span className="mx-2 text-text-muted">·</span>
               {site.location}
             </span>
@@ -50,8 +53,14 @@ export function Hero() {
         </LoadIn>
 
         {/* Heading animat literă cu literă + shimmer */}
-        <h1 className="mt-6 text-[clamp(2.75rem,9vw,5.75rem)] font-semibold leading-[0.95] tracking-tight">
+        <h1 className="mt-6 flex flex-wrap items-baseline text-[clamp(2.75rem,9vw,5.75rem)] font-semibold leading-[0.95] tracking-tight">
           <span className="sr-only">{site.brand}</span>
+          <span
+            aria-hidden
+            className="bracket mr-[0.15em] text-[0.55em] leading-none"
+          >
+            &lt;
+          </span>
           <motion.span
             aria-hidden
             className="text-shimmer inline-flex"
@@ -79,14 +88,37 @@ export function Hero() {
               </motion.span>
             ))}
           </motion.span>
+          <span
+            aria-hidden
+            className="bracket ml-[0.2em] text-[0.55em] leading-none"
+          >
+            /&gt;
+          </span>
+          <span aria-hidden className="caret ml-[0.15em] self-center" />
         </h1>
 
+        <LoadIn delay={0.4}>
+          <p className="mt-6 font-mono text-sm text-text-muted">
+            <span className="text-accent/60">{"//"}</span>{" "}
+            <Typewriter
+              className="text-text-secondary"
+              words={[
+                "Flutter developer",
+                "React / TypeScript engineer",
+                "Java Spring Boot backend",
+                "de la idee la producție",
+              ]}
+            />
+          </p>
+        </LoadIn>
+
         <LoadIn delay={0.45}>
-          <p className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-text-secondary sm:text-xl">
-            Construiesc aplicații de la idee la producție — mobile cu{" "}
-            <span className="text-text-primary">Flutter</span>, web cu{" "}
-            <span className="text-text-primary">React/TypeScript</span> și backend cu{" "}
-            <span className="text-text-primary">Java Spring Boot</span>.
+          <p className="mt-3 max-w-2xl text-balance text-lg leading-relaxed text-text-secondary sm:text-xl">
+            Îți transform ideea într-un <Hi>produs real</Hi>, publicat și folosit —
+            de la primul wireframe până la deploy. Mobile cu{" "}
+            <code className="code-chip">Flutter</code>, web cu{" "}
+            <code className="code-chip">React/TS</code> și backend cu{" "}
+            <code className="code-chip">Spring Boot</code>.
           </p>
         </LoadIn>
 
@@ -94,9 +126,9 @@ export function Hero() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <MagneticButton
               href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover hover:shadow-glow"
+              className="btn-shine group inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover hover:shadow-glow"
             >
-              Hai să lucrăm împreună
+              Începe un proiect
               <span
                 className="transition-transform duration-200 group-hover:translate-x-0.5"
                 aria-hidden
@@ -108,9 +140,24 @@ export function Hero() {
               href="#proiecte"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-text-primary backdrop-blur transition-colors duration-200 hover:border-accent/40 hover:text-accent"
             >
-              Vezi proiecte
+              Vezi rezultate
             </a>
           </div>
+        </LoadIn>
+
+        <LoadIn delay={0.66}>
+          <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-text-muted">
+            <li className="flex items-center gap-1.5">
+              <span className="text-accent">✓</span> 2 apps live în App Store &amp;
+              Google Play
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="text-accent">✓</span> 10M+ înregistrări integrate
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="text-accent">✓</span> răspuns în 24h
+            </li>
+          </ul>
         </LoadIn>
 
         <LoadIn delay={0.75}>
