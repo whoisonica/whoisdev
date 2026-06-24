@@ -1,0 +1,25 @@
+import { Nav } from "@/components/Nav";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { CaseStudies } from "@/components/CaseStudies";
+import { Services } from "@/components/Services";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <>
+      <ScrollProgress />
+      <Nav />
+      <main id="main">
+        <Hero />
+        <About />
+        <CaseStudies />
+        <Services />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}

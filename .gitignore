@@ -1,0 +1,20 @@
+/node_modules
+/.next
+/out
+/build
+.DS_Store
+*.pem
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Capturi-sursă (originalele; copiile optimizate sunt deja în public/)
+/capturi ecran jobbin actual/
+/web poza 1.png
+/credite web.png
+/event web.png
+/posteaza job.png
+
+# Config local Claude Code
+/.claude/
