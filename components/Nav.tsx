@@ -5,9 +5,9 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "#despre", label: "Despre" },
-  { href: "#proiecte", label: "Proiecte" },
-  { href: "#servicii", label: "Servicii" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -24,7 +24,7 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Evidențiază în meniu secțiunea aflată în dreptul ecranului
+  // Highlight the nav item for the section currently in view
   useEffect(() => {
     const ids = links.map((l) => l.href.slice(1));
     const observer = new IntersectionObserver(
@@ -42,7 +42,7 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  // Blochează scroll-ul body cât timp meniul mobil e deschis
+  // Lock body scroll while the mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -75,7 +75,7 @@ export function Nav() {
           {site.brand}
         </a>
 
-        {/* Navigație desktop */}
+        {/* Desktop navigation */}
         <nav className="hidden items-center gap-1 sm:flex">
           {links.map((link) => {
             const isActive = active === link.href.slice(1);
@@ -113,15 +113,15 @@ export function Nav() {
           </a>
         </nav>
 
-        {/* Buton hamburger — doar pe mobil */}
+        {/* Hamburger button — mobile only */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Închide meniul" : "Deschide meniul"}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           className="relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-surface text-text-primary transition-colors hover:border-accent/50 sm:hidden"
         >
-          <span className="sr-only">Meniu</span>
+          <span className="sr-only">Menu</span>
           <span className="relative block h-4 w-5" aria-hidden>
             <span
               className={`absolute left-0 block h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${
@@ -142,7 +142,7 @@ export function Nav() {
         </button>
       </div>
 
-      {/* Meniu mobil overlay */}
+      {/* Mobile menu overlay */}
       <AnimatePresence>
         {open ? (
           <motion.nav
@@ -168,7 +168,7 @@ export function Nav() {
               onClick={() => setOpen(false)}
               className="mt-1 block rounded-lg bg-accent px-4 py-3 text-center text-base font-medium text-white transition-colors hover:bg-accent-hover"
             >
-              Hai să lucrăm împreună
+              Get in touch
             </a>
           </motion.nav>
         ) : null}

@@ -5,9 +5,9 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 /**
  * Cursor personalizat (doar pe dispozitive cu pointer fin — desktop):
- * un punct precis care urmărește instant cursorul + un inel care „lag-uiește"
- * prin spring și crește când treci peste elemente interactive.
- * Dezactivat complet pe touch și la prefers-reduced-motion.
+ * a precise dot tracking the cursor instantly, plus a ring that lags behind on
+ * a spring and grows over interactive elements.
+ * Fully disabled on touch and under prefers-reduced-motion.
  */
 export function CursorGlow() {
   const [enabled, setEnabled] = useState(false);
@@ -57,7 +57,7 @@ export function CursorGlow() {
         <div className="h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent" />
       </motion.div>
 
-      {/* inel care lag-uiește + reacționează la hover / click */}
+      {/* ring that lags behind and reacts to hover / click */}
       <motion.div
         aria-hidden
         className="pointer-events-none fixed left-0 top-0 z-[60]"

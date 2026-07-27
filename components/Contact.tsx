@@ -40,16 +40,15 @@ export function Contact() {
           <div className="relative text-center">
             <span className="eyebrow">Contact</span>
             <h2 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-text-primary sm:text-5xl">
-              Hai să construim ceva împreună.
+              Let&apos;s build something together.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg">
-              Ai o idee de produs sau un proiect în desfășurare? Scrie-mi câteva
-              rânduri despre el și îți răspund cu o <Hi>estimare clară</Hi> — fără
-              obligații.
+              Looking for a full-stack engineer, or want to talk through a
+              product? Send me a few lines about it and I&apos;ll get back to you with
+              a <Hi>straight answer</Hi>.
             </p>
             <p className="mt-3 font-mono text-xs text-text-muted">
-              <span className="text-accent">●</span> Disponibil pentru 1–2 proiecte
-              noi
+              <span className="text-accent">●</span> Open to full-time remote roles
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -64,13 +63,13 @@ export function Contact() {
 
             <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-xs text-text-muted">
               <li className="flex items-center gap-1.5">
-                <span className="text-accent">✓</span> Răspuns în 24h
+                <span className="text-accent">✓</span> Replies within 24h
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-accent">✓</span> Estimare gratuită
+                <span className="text-accent">✓</span> Available immediately
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-accent">✓</span> Fără obligații
+                <span className="text-accent">✓</span> Remote / hybrid / relocation
               </li>
             </ul>
 

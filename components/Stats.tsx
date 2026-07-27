@@ -2,15 +2,15 @@ import { Reveal, Stagger, StaggerItem } from "./motion";
 import { CountUp } from "./CountUp";
 
 const stats = [
-  { value: "10M+", label: "Înregistrări integrate", sub: "Inventar hotelier la scară" },
-  { value: "4", label: "Produse end-to-end", sub: "Mobile · web · backend · desktop" },
-  { value: "2", label: "Apps publicate", sub: "App Store & Google Play" },
-  { value: "2+ ani", label: "Backend Java în producție", sub: "Spring Boot, echipe reale" },
+  { value: "10M+", label: "Records integrated", sub: "Hotel inventory at scale" },
+  { value: "3", label: "End-to-end products", sub: "Mobile · web · backend · desktop" },
+  { value: "2", label: "Apps published", sub: "App Store & Google Play" },
+  { value: "1.5 yrs", label: "Java backend in production", sub: "Spring Boot, real teams" },
 ];
 
 export function Stats() {
   return (
-    <section aria-label="Cifre cheie" className="border-t border-border/60">
+    <section aria-label="Key numbers" className="border-t border-border/60">
       <div className="mx-auto w-full max-w-content px-5 sm:px-6">
         <Reveal>
           <Stagger className="grid grid-cols-2 divide-x divide-y divide-border/60 border-x border-border/60 sm:grid-cols-4 sm:divide-y-0">

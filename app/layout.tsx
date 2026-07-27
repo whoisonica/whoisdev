@@ -19,7 +19,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.brand} — ${site.role}`,
+    default: `${site.name} — ${site.role}`,
     template: `%s — ${site.brand}`,
   },
   description: site.description,
@@ -29,22 +29,24 @@ export const metadata: Metadata = {
     "React",
     "TypeScript",
     "Spring Boot",
-    "Oradea",
+    "Java",
+    "remote",
+    "Andrei Onica",
     "whoisdev",
   ],
-  authors: [{ name: site.brand }],
-  creator: site.brand,
+  authors: [{ name: site.name }],
+  creator: site.name,
   openGraph: {
     type: "website",
-    locale: "ro_RO",
+    locale: "en_US",
     url: site.url,
     siteName: site.brand,
-    title: `${site.brand} — ${site.role}`,
+    title: `${site.name} — ${site.role}`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.brand} — ${site.role}`,
+    title: `${site.name} — ${site.role}`,
     description: site.description,
   },
   robots: {
@@ -65,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ro" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="bg-bg text-text-primary font-sans antialiased">
         <div className="noise-overlay" aria-hidden />
         <CursorGlow />
@@ -73,7 +75,7 @@ export default function RootLayout({
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
         >
-          Sari la conținut
+          Skip to content
         </a>
         {children}
       </body>

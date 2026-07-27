@@ -3,8 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * Reveal pe cuvinte: fiecare cuvânt urcă dintr-o „mască" cu stagger,
- * la intrarea în viewport. La prefers-reduced-motion afișează textul static.
+ * Per-word reveal: each word rises out of a mask with a stagger as it enters
+ * the viewport. Under prefers-reduced-motion the text renders statically.
  */
 export function WordReveal({
   text,

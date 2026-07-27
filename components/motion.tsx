@@ -3,8 +3,8 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
 
-// Variantă de bază: fade + rise. Când prefers-reduced-motion e activ,
-// componentele de mai jos elimină mișcarea și păstrează doar conținutul.
+// Base variant: fade + rise. When prefers-reduced-motion is active, the
+// components below drop the movement and keep the content only.
 const fadeRise: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -28,7 +28,7 @@ type RevealProps = {
   as?: "div" | "section" | "li" | "span";
 };
 
-/** Element care apare la intrarea în viewport (o singură dată). */
+/** Element that reveals once, when it enters the viewport. */
 export function Reveal({ children, className, delay = 0, as = "div" }: RevealProps) {
   const reduce = useReducedMotion();
   const MotionTag = motion[as];
@@ -57,7 +57,7 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
   );
 }
 
-/** Container cu stagger pentru copii (folosit la load în Hero / grids). */
+/** Container that staggers its children (used on load in Hero / grids). */
 export function Stagger({ children, className }: { children: ReactNode; className?: string }) {
   const reduce = useReducedMotion();
 
@@ -93,7 +93,7 @@ export function StaggerItem({
   );
 }
 
-/** Apariție imediată la load (fără așteptare scroll) — pentru Hero. */
+/** Appears immediately on load, without waiting for scroll — for the Hero. */
 export function LoadIn({
   children,
   className,

@@ -6,18 +6,18 @@ import { stack } from "@/lib/site";
 
 export function About() {
   return (
-    <Section id="despre">
+    <Section id="about">
       <Reveal>
         <SectionHeader
           index="01"
-          eyebrow="Despre"
-          title="Full-stack, de la idee la producție."
+          eyebrow="About"
+          title="Full-stack, from idea to production."
           intro={
             <>
-              Sunt dezvoltator full-stack din Oradea. Acopăr{" "}
-              <Hi>tot lanțul</Hi>: mobil, web și backend — ceea ce înseamnă că pot
-              duce un produs de la primul wireframe până la deploy, fără cusături
-              între straturi.
+              I&apos;m a full-stack engineer based in Oradea, Romania. I cover{" "}
+              <Hi>the whole chain</Hi>: mobile, web and backend — which means I can
+              take a product from the first wireframe to deploy, with no seams
+              between the layers.
             </>
           }
         />

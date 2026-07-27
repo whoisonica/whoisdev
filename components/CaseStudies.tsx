@@ -8,16 +8,16 @@ import { caseStudies, type CaseStudy } from "@/lib/site";
 
 export function CaseStudies() {
   return (
-    <Section id="proiecte">
+    <Section id="projects">
       <Reveal>
         <SectionHeader
           index="02"
-          eyebrow="Proiecte"
-          title="Proiecte, fiecare ca o poveste: de la problemă la rezultat."
+          eyebrow="Projects"
+          title="Projects, each one a story: from problem to result."
           intro={
             <>
-              Fiecare proiect e o demonstrație <Hi>end-to-end</Hi>: ce problemă a
-              fost, ce am construit și ce a ieșit.
+              Each project is an <Hi>end-to-end</Hi> walkthrough: what the problem
+              was, what I built, and how it turned out.
             </>
           }
         />
@@ -102,16 +102,16 @@ function CaseStudyBlock({ study }: { study: CaseStudy }) {
 
       <Reveal delay={0.05}>
         <div className="mt-8 grid gap-8 sm:grid-cols-3">
-          <Step label="Problema">{study.problem}</Step>
-          <Step label="Ce am construit">{study.built}</Step>
-          <Step label="Rezultat">{study.result}</Step>
+          <Step label="Problem">{study.problem}</Step>
+          <Step label="What I built">{study.built}</Step>
+          <Step label="Result">{study.result}</Step>
         </div>
       </Reveal>
 
       {study.highlights && study.highlights.length > 0 ? (
         <Reveal delay={0.06}>
           <div className="mt-12">
-            <p className="label-mono mb-5">Ce am livrat</p>
+            <p className="label-mono mb-5">What I shipped</p>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {study.highlights.map((h) => (
                 <SpotlightCard
@@ -243,7 +243,7 @@ function CaseStudyBlock({ study }: { study: CaseStudy }) {
                 {study.galleryCaption}
               </p>
             ) : null}
-            {/* Prima imagine — featured, pe toată lățimea */}
+            {/* First image — featured, full width */}
             <ImageFrame
               src={study.gallery[0].src}
               alt={study.gallery[0].alt}

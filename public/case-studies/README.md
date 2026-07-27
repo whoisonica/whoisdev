@@ -1,30 +1,29 @@
-# Imagini case studies
+# Case study images
 
-Numele fișierelor trebuie să fie EXACT cele de mai jos (sunt referite din
-`lib/site.ts`). Unde lipsește un fișier, site-ul afișează automat un placeholder
-elegant — nu se strică nimic.
+Filenames must match the list below **exactly** — they are referenced from
+`lib/site.ts`. Where a file is missing the site renders a graceful placeholder
+instead, so nothing breaks.
 
-Format recomandat: PNG sau WebP, lățime ≥ 1280px (capturi web landscape;
-telefoanele pot fi portret).
+Recommended format: PNG or WebP, width ≥ 1280px (landscape for web captures;
+phone shots can be portrait).
 
 ## JOBBIN — `public/case-studies/jobbin/`
-Before/after (telefon, portret):
+
+Before/after (phone, portrait):
 - `old-applications.jpeg` / `new-applications.jpeg`
 - `old-jobs.png` / `new-jobs.jpeg`
 
-Showcase mobil (Flutter):
+Mobile showcase (Flutter):
 - `new-dashboard.jpeg`, `new-positions.jpeg`, `new-profile.jpeg`
 
-Dashboard web angajatori (React/TS, landscape):
+Employer web dashboard (React/TS, landscape):
 - `web-post-job.png`, `web-credits.png`, `web-events.png`
 
-## E-COMMERCE — `public/case-studies/ecommerce/`
-- `storefront.png` — storefront-ul magazinului livrat (placeholder până adaugi captura)
-
 ## ATEMSUITE — `public/case-studies/atemsuite/`
-- `multiview.png`  — app-ul în acțiune pe semnal video real
-- `dashboard.png`  — UI complet pe color bars SMPTE 100%
-- `analysis.png`   — analiză color bars EBU R84
 
-> Vrei alte imagini sau alt before/after? Editează array-ul `caseStudies`
-> din `lib/site.ts`.
+- `multiview.png` — the app running on a real video signal
+- `dashboard.png` — full UI on SMPTE 100% color bars
+- `analysis.png` — EBU R84 color bar analysis
+
+> Want different images, or another before/after pair? Edit the `caseStudies`
+> array in `lib/site.ts`.

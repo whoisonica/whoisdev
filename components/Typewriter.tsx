@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
 /**
- * Efect de tastare care ciclează printr-o listă de cuvinte/fraze:
- * scrie, ține o pauză, șterge, trece la următoarea. La prefers-reduced-motion
- * afișează static primul element (fără animație).
+ * Typing effect cycling through a list of words/phrases: type, pause, delete,
+ * move to the next. Under prefers-reduced-motion it renders the first item
+ * statically, with no animation.
  */
 export function Typewriter({
   words,

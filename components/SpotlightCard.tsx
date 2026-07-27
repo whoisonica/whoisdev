@@ -4,9 +4,9 @@ import { useRef, type ReactNode, type MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 /**
- * Card cu glow radial care urmărește cursorul pe margine + suprafață
- * (efect CSS, vezi .spotlight-card în globals.css), plus tilt 3D opțional:
- * cardul se înclină ușor după poziția cursorului și se ridică la hover.
+ * Card with a radial glow that follows the cursor across border and surface
+ * (CSS effect, see .spotlight-card in globals.css), plus optional 3D tilt:
+ * the card leans toward the cursor and lifts on hover.
  * Tilt-ul e dezactivat la prefers-reduced-motion.
  */
 export function SpotlightCard({

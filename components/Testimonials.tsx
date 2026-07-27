@@ -23,7 +23,7 @@ function initialsFrom(name: string) {
 }
 
 export function Testimonials() {
-  // Afișăm doar testimoniale reale — placeholderele "TODO" sunt ascunse.
+  // Only render real testimonials — "TODO" placeholders are hidden.
   const items = testimonials.filter(
     (t) => !t.quote.trim().toUpperCase().startsWith("TODO")
   );
@@ -31,16 +31,16 @@ export function Testimonials() {
   if (items.length === 0) return null;
 
   return (
-    <Section id="recomandari">
+    <Section id="testimonials">
       <Reveal>
         <SectionHeader
           index="04"
-          eyebrow="Recomandări"
-          title="Ce spun oamenii cu care am lucrat."
+          eyebrow="Testimonials"
+          title="What the people I have worked with say."
           intro={
             <>
-              <Hi>Rezultate reale</Hi>, din proiecte reale — nu promisiuni de
-              landing page.
+              <Hi>Real results</Hi>, from real projects — not landing-page
+              promises.
             </>
           }
         />

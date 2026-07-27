@@ -6,16 +6,16 @@ import { services } from "@/lib/site";
 
 export function Services() {
   return (
-    <Section id="servicii">
+    <Section id="services">
       <Reveal>
         <SectionHeader
           index="03"
-          eyebrow="Servicii"
-          title="Cu ce te pot ajuta."
+          eyebrow="Services"
+          title="What I work with."
           intro={
             <>
-              Trei zone, <Hi>un singur dezvoltator</Hi> — fără handoff-uri pierdute
-              între echipe.
+              Three layers, <Hi>one engineer</Hi> — no handoffs lost between
+              teams.
             </>
           }
         />

@@ -4,8 +4,8 @@ import { useRef, type ReactNode, type MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 /**
- * Link/buton „magnetic": se apropie ușor de cursor la hover.
- * Dezactivat complet când utilizatorul preferă mișcare redusă.
+ * Magnetic link/button: drifts slightly toward the cursor on hover.
+ * Fully disabled when the user prefers reduced motion.
  */
 export function MagneticButton({
   children,

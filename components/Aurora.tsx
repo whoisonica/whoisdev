@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Fundal „aurora": două pete de gradient care plutesc lent + un spotlight
- * care urmărește cursorul. Mișcarea automată e oprită prin CSS la
+ * Aurora background: two slowly drifting gradient blobs plus a spotlight that
+ * follows the cursor. The automatic motion is stopped via CSS under
  * prefers-reduced-motion (.aurora-blob), iar spotlight-ul de mouse devine
- * irelevant (nu există hover pe touch / fără cursor).
+ * irrelevant (there is no hover on touch / without a cursor).
  */
 export function Aurora() {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,10 +36,10 @@ export function Aurora() {
 
   return (
     <div ref={ref} className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {/* grilă subtilă, plutește lent în diagonală */}
+      {/* subtle grid, drifting slowly on the diagonal */}
       <div className="bg-grid animate-grid absolute inset-0 opacity-70" />
 
-      {/* glow central care „respiră" — chiar în spatele titlului */}
+      {/* central glow that breathes — right behind the heading */}
       <div
         className="aurora-blob absolute left-1/2 top-[18%] h-[420px] w-[560px] rounded-full blur-[100px]"
         style={{
@@ -77,7 +77,7 @@ export function Aurora() {
         }}
       />
 
-      {/* spotlight care urmărește cursorul */}
+      {/* spotlight following the cursor */}
       <div
         className="absolute inset-0 transition-opacity duration-500"
         style={{

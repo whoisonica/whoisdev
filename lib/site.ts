@@ -1,16 +1,17 @@
-// Date centralizate ale site-ului — schimbă aici și se reflectă peste tot.
+// Centralised site data — change it here and it propagates everywhere.
 
 export const site = {
   brand: "whoisdev",
-  name: "whoisdev",
-  role: "Dezvoltator full-stack",
-  location: "Oradea, România",
-  domain: "whoisdev.dev",
-  url: "https://whoisdev.dev",
-  tagline: "Construiesc aplicații de la idee la producție.",
+  name: "Andrei-Vlad Onica",
+  role: "Full-stack engineer",
+  location: "Oradea, Romania",
+  domain: "whoisdev.vercel.app",
+  url: "https://whoisdev.vercel.app",
+  tagline: "I build products from idea to production.",
   description:
-    "Dezvoltator full-stack din Oradea. Construiesc aplicații mobile (Flutter), web (React/TypeScript) și backend (Java Spring Boot) — de la idee la producție.",
+    "Full-stack engineer based in Oradea, Romania. I build mobile apps (Flutter), web apps (React/TypeScript) and backends (Java Spring Boot) — from idea to production.",
   email: "whoisonica@gmail.com",
+  cvUrl: "/Andrei-Onica-CV.pdf",
   socials: {
     github: "https://github.com/whoisonica",
     linkedin: "https://www.linkedin.com/in/whoisdev",
@@ -21,17 +22,17 @@ export const stack = [
   {
     label: "Mobile",
     tech: "Flutter",
-    desc: "Aplicații native cross-platform, performante și fluide, pentru iOS și Android dintr-un singur codebase.",
+    desc: "Cross-platform apps for iOS and Android from a single codebase — fast, fluid, and native-feeling.",
   },
   {
     label: "Web",
     tech: "React + TypeScript",
-    desc: "Interfețe moderne, type-safe și rapide, cu atenție la detaliu și la experiența utilizatorului.",
+    desc: "Modern, type-safe interfaces with genuine attention to detail and user experience.",
   },
   {
     label: "Backend",
     tech: "Java Spring Boot",
-    desc: "API-uri robuste, scalabile și sigure, construite pentru producție și mentenanță pe termen lung.",
+    desc: "Robust, scalable and secure APIs, built for production and long-term maintenance.",
   },
 ];
 
@@ -70,7 +71,8 @@ export const caseStudies: CaseStudy[] = [
     id: "jobbin",
     index: "01",
     title: "JOBBIN",
-    subtitle: "Platformă de recrutare — mobil, web și backend · App Store & Google Play",
+    subtitle:
+      "Recruitment platform — mobile, web and backend · Live on App Store & Google Play",
     tags: [
       "Flutter",
       "React",
@@ -82,152 +84,161 @@ export const caseStudies: CaseStudy[] = [
     ],
     role: {
       title: "Full-Stack Developer · Jobbin",
-      period: "Februarie 2026 – prezent",
+      period: "February 2026 – present",
       summary:
-        "Am preluat produsul din stadiul de MVP și l-am dus în producție pe trei aplicații: backend (Java / Spring Boot), dashboard web pentru angajatori (React / TypeScript) și aplicația mobilă pentru candidați (Flutter), publicată în App Store și Google Play.",
+        "I joined a three-app product at MVP stage and drove it to public launch over six months. I'm the sole developer on the Flutter candidate app (199 of 204 commits), I own the React employer dashboard (190 of 268), and I ship backend features alongside the original author (163 of 389).",
     },
     problem:
-      "Produsul era la stadiul de MVP: trei aplicații care trebuiau duse în producție, cu o interfață veche greoaie și inconsistentă, fără monetizare, fără notificări reale și fără hardening de securitate. Trebuia transformat dintr-un prototip într-un produs publicabil în store-uri.",
+      "The product was an MVP: three applications that needed to reach production, with a dated and inconsistent interface, no monetization, no real notifications, and no security hardening. It had to go from prototype to something publishable in the app stores.",
     built:
-      "Dezvoltare full-stack pe toate cele trei aplicații: arhitectură de date și migrări de schemă (Liquibase / PostgreSQL), securitate (JWT pe roluri, autorizare la nivel de endpoint, CORS, eliminarea credențialelor din cod), storage pe Cloudflare R2 cu presigned URLs, deploy pe Heroku, plăți Stripe cu idempotency pe webhook și push notifications end-to-end prin Firebase Cloud Messaging. Plus un redesign complet al aplicației mobile, în spiritul Linear / Vercel / Notion.",
+      "Full-stack work across all three applications: data modelling and schema evolution on PostgreSQL, security (role-based JWT, endpoint-level authorization, CORS), file storage on Cloudflare R2 with presigned URLs, deployment to Heroku, Stripe payments with idempotent webhook handling, and end-to-end push notifications through Firebase Cloud Messaging — plus a complete redesign of the mobile app.",
     result:
-      "Produs dus din MVP în producție și publicat în App Store și Google Play: un sistem de monetizare funcțional, notificări in-app + push fiabile, o aplicație mult mai clară și mai încrezătoare și o singură sursă de adevăr în backend.",
+      "Taken from MVP to production and published on the App Store and Google Play: a working monetization system, reliable in-app and push notifications, a far clearer product, and a single source of truth in the backend.",
     highlights: [
       {
-        title: "Autentificare & conturi",
-        desc: "Login separat pe roluri (candidat / angajator), verificare email, restaurare sesiune din JWT, ștergere cont.",
+        title: "Authentication & accounts",
+        desc: "Role-separated login (candidate / employer), email verification, session restore from JWT, account deletion.",
       },
       {
-        title: "Sistem de joburi",
-        desc: "Tipuri de job/contract, nivel de experiență, salariu brut/net/confidențial, locație remote sau cu autocomplete Google Places, categorii, soft-delete și expirare automată.",
+        title: "Job system",
+        desc: "Job and contract types, experience levels, gross/net/confidential salary, remote or Google Places-backed locations, categories, soft-delete and automatic expiry.",
       },
       {
-        title: "Evenimente",
-        desc: "Funcționalitate nouă, de la entitate până la UI: listă și detalii, joburi legate, carusel pe home-ul mobil, promovare cu push țintit.",
+        title: "Events",
+        desc: "A new feature built from the entity up to the UI: listing and detail views, linked jobs, a carousel on the mobile home screen, and promotion via targeted push.",
       },
       {
-        title: "Credite & monetizare",
-        desc: "Model freemium cu pachete de credite (preț ancorat + reduceri), expirare pe loturi, integrare Stripe cu idempotency pe webhook și sold sincronizat în timp real.",
+        title: "Credits & monetization",
+        desc: "Freemium model with credit packs (anchored pricing plus discounts), per-batch expiry, Stripe integration with idempotent webhooks, and a balance synced in real time.",
       },
       {
-        title: "Notificări",
-        desc: "Sistem unificat in-app + push (FCM): mesaje per status, deduplicare, corecție de fus orar, badge pe clopoțel, swipe-to-delete și cooldown de 24h.",
+        title: "Notifications",
+        desc: "Unified in-app and push system (FCM): per-status messaging, deduplication, timezone correction, bell badge, swipe-to-delete, and a 24h cooldown.",
       },
       {
-        title: "Disponibilitate & matching",
-        desc: "Intervale de disponibilitate, poziții preferate, filtre avansate cu selector județ → oraș în cascadă și sortare după rating.",
+        title: "Availability & matching",
+        desc: "Availability windows, preferred positions, advanced filters with a cascading county → city selector, and rating-based sorting.",
       },
       {
-        title: "Statistici candidat",
-        desc: "Rată de răspuns, rată de prezență și rating cu breakdown detaliat, expuse atât candidatului, cât și angajatorului.",
+        title: "Candidate statistics",
+        desc: "Response rate, attendance rate and rating with a detailed breakdown, exposed to both the candidate and the employer.",
       },
       {
-        title: "Invitații & colaborări",
-        desc: "Flux de invitație la job, acceptare inline, auto-finalizare a colaborărilor, expirare și flux de feedback/review.",
+        title: "Invitations & collaborations",
+        desc: "Job invitation flow, inline acceptance, automatic collaboration completion, expiry, and a feedback/review flow.",
       },
       {
         title: "UX & design",
-        desc: "Redesign home mobil (strip de „stories” promovate stil OLX), bară de navigație liquid glass, pull-to-refresh, toast-uri, localizare RO, layout bento la credite.",
+        desc: "Redesigned mobile home (promoted-company “stories” strip), liquid-glass navigation bar, pull-to-refresh, toasts, localisation, and a bento layout for credits.",
       },
       {
-        title: "Infrastructură & fiabilitate",
-        desc: "Storage pe Cloudflare R2 (presigned URLs, fix handshake TLS pe Heroku), auto-refresh realtime (polling + push + version-check), hardening de securitate și publicare în store-uri.",
+        title: "Infrastructure & reliability",
+        desc: "Cloudflare R2 storage (presigned URLs, TLS handshake fix on Heroku), realtime auto-refresh (polling + push + version check), security hardening, and store publication.",
       },
     ],
     phoneCompare: {
-      caption: "Redesign aplicație mobilă — before / after",
+      caption: "Mobile app redesign — before / after",
       pairs: [
         {
-          label: "Lista de aplicări ale candidatului",
+          label: "Candidate's application list",
           before: {
             src: "/case-studies/jobbin/old-applications.jpeg",
-            alt: "Ecranul „Aplicările mele” înainte de redesign — carduri înghesuite, ierarhie slabă",
+            alt: "The “My applications” screen before the redesign — cramped cards, weak hierarchy",
           },
           after: {
             src: "/case-studies/jobbin/new-applications.jpeg",
-            alt: "Ecranul „Aplicările mele” după redesign — titlu mare, carduri aerisite, statusuri clare",
+            alt: "The “My applications” screen after the redesign — large title, roomier cards, clear statuses",
           },
         },
         {
-          label: "Căutare joburi",
+          label: "Job search",
           before: {
             src: "/case-studies/jobbin/old-jobs.png",
-            alt: "Feed-ul de joburi înainte de redesign — listă plată, fără ierarhie",
+            alt: "The jobs feed before the redesign — a flat list with no hierarchy",
           },
           after: {
             src: "/case-studies/jobbin/new-jobs.jpeg",
-            alt: "Tab-ul „Joburi” după redesign — companii promovate, căutare cu filtre, carduri detaliate",
+            alt: "The “Jobs” tab after the redesign — promoted companies, search with filters, detailed cards",
           },
         },
       ],
     },
     phones: {
-      caption: "Mai multe ecrane din aplicația redesenată (Flutter)",
+      caption: "More screens from the redesigned app (Flutter)",
       shots: [
         {
           src: "/case-studies/jobbin/new-dashboard.jpeg",
-          alt: "Dashboard-ul candidatului: evenimente, statistici Răspuns/Prezență/Reputație, disponibilitate",
+          alt: "Candidate dashboard: events, Response/Attendance/Reputation statistics, availability",
         },
         {
           src: "/case-studies/jobbin/new-positions.jpeg",
-          alt: "Ecranul „Pozițiile Mele” cu taburi Anterioare / Invitații și carduri de joburi",
+          alt: "The “My Positions” screen with Previous / Invitations tabs and job cards",
         },
         {
           src: "/case-studies/jobbin/new-profile.jpeg",
-          alt: "Ecranul de profil al candidatului cu CV, setări și rating",
+          alt: "Candidate profile screen with CV, settings and rating",
         },
       ],
     },
-    galleryCaption: "Dashboard web pentru angajatori — React / TypeScript",
+    galleryCaption: "Employer web dashboard — React / TypeScript",
     gallery: [
       {
         src: "/case-studies/jobbin/web-post-job.png",
-        alt: "Formularul „Postează job” în 5 pași — categorie, poziție, experiență",
+        alt: "The five-step “Post a job” form — category, position, experience",
       },
       {
         src: "/case-studies/jobbin/web-credits.png",
-        alt: "Pagina de credite cu pachete și prețuri (layout bento) și sold în timp real",
+        alt: "The credits page with packs and pricing (bento layout) and a real-time balance",
       },
       {
         src: "/case-studies/jobbin/web-events.png",
-        alt: "Pagina de evenimente din dashboard-ul web pentru angajatori",
+        alt: "The events page in the employer web dashboard",
       },
     ],
   },
   {
-    id: "tripstaxhotels",
+    id: "ecoregistru",
     index: "02",
-    title: "TRIPSTAXHOTELS",
-    subtitle: "Agregare de inventar hotelier la scară mare — backend Java / Spring Boot",
-    tags: ["Java", "Spring Boot", "REST API", "Booking.com API", "JSON", "Postman"],
+    title: "ECOREGISTRU",
+    status: "In progress",
+    subtitle: "Multi-tenant compliance SaaS — Spring Boot / React · Solo build",
+    tags: [
+      "Java 21",
+      "Spring Boot 3.2",
+      "PostgreSQL",
+      "Flyway",
+      "Multi-tenancy",
+      "React",
+      "Vite",
+    ],
     role: {
-      title: "Junior Java Spring Boot Developer · TechQuarter",
-      period: "2 ani · Cluj-Napoca",
+      title: "Sole developer · EcoRegistru",
+      period: "July 2026 – present",
       summary:
-        "Am lucrat doi ani pe proiectul TripstaxHotels: am colaborat direct cu clienții pentru a transpune cerințele în specificații tehnice și am dezvoltat funcționalități de backend alături de echipe interdisciplinare, ținându-mă mereu la curent cu tehnologiile emergente.",
+        "Designed and built end to end: architecture, backend, frontend and tests. Domain requirements validated with compliance-reporting specialists.",
     },
     problem:
-      "Aplicația avea nevoie de un inventar hotelier uriaș și mereu actualizat — peste 10 milioane de hoteluri din Booking.com — importate automat și fiabil în backend, fără intervenție manuală.",
+      "Romanian waste operators are legally required to keep monthly waste-management records and file SIM/AFM reports. Most still do it in spreadsheets — error-prone, impossible to audit, and painful when an inspection arrives.",
     built:
-      "Am implementat în backend (Java / Spring Boot) întregul flux de import automat a peste 10 milioane de hoteluri de la Booking.com: apeluri către API, parsare și mapare de JSON, testare cu Postman. Am depanat probleme software complexe și am integrat noile funcționalități împreună cu echipe interdisciplinare.",
+      "A multi-tenant SaaS with request-scoped tenant isolation on every table, a Flyway-versioned schema, four access roles, and an evidence engine that aggregates waste movements into monthly records per work point and waste code, with running stock balances. Attachments go to Cloudinary; the whole thing is covered by integration tests, including a dedicated tenant-isolation suite.",
     result:
-      "Peste 10 milioane de hoteluri importate automat în aplicație și un release mai stabil al produsului — doi ani de experiență profesională solidă în backend Java la scară mare.",
+      "A working platform that turns a compliance obligation into a few clicks a month, with a verifiable audit trail. In active development — the backend foundation and the movements, partners and evidence screens are complete.",
     highlights: [
       {
-        title: "Import automat 10M+ hoteluri",
-        desc: "Flux complet de import din Booking.com prin API — apeluri, parsare și mapare de JSON, testare cu Postman.",
+        title: "Multi-tenancy",
+        desc: "A company_id on every table, enforced by a TenantContext and a request filter; platform admins switch tenant via an X-Tenant-Id header.",
       },
       {
-        title: "Cerințe → specificații",
-        desc: "Colaborare directă cu clienții pentru a transpune cerințele de business în specificații tehnice de implementare.",
+        title: "Versioned schema",
+        desc: "Flyway migrations with a real version history — no auto-generated DDL in production.",
       },
       {
-        title: "Debugging & stabilitate",
-        desc: "Depanarea unor probleme software complexe, ceea ce a dus la un release mai stabil al produsului.",
+        title: "Evidence engine",
+        desc: "Aggregates movements into monthly lines per (work point, waste code) with cumulative stock, flagging negative balances.",
       },
       {
-        title: "Echipe interdisciplinare",
-        desc: "Integrarea fără probleme a noilor funcționalități, lucrând alături de echipe cross-functional.",
+        title: "Tested where it counts",
+        desc: "Integration tests across tenant isolation, evidence calculation, deadline alerts and export correctness.",
       },
     ],
   },
@@ -235,93 +246,57 @@ export const caseStudies: CaseStudy[] = [
     id: "atemsuite",
     index: "03",
     title: "ATEMSUITE",
-    subtitle: "Analiză video în timp real — desktop WPF / C#",
-    tags: ["C#", "WPF", "Desktop", "Computer Vision", "Real-time"],
+    subtitle: "Real-time video analysis — WPF / C# desktop · Engineering thesis",
+    tags: ["C#", "WPF", "MVVM", "OpenCV", "Computer Vision", "Real-time"],
     problem:
-      "Un switcher Blackmagic ATEM Mini are mai multe surse video, dar comutarea manuală e lentă și subiectivă. Era nevoie de un instrument care să analizeze sursele în timp real și să decidă inteligent ce cameră merge pe air.",
+      "A Blackmagic ATEM Mini switcher carries several video sources, but switching between them by hand is slow and subjective. What was needed was a tool that analyses the sources live and makes an objective call about which camera goes on air.",
     built:
-      "O aplicație desktop WPF/C# care analizează în timp real fluxurile video ale switcher-ului: luminozitate, contrast, mișcare și detecție de față. Pe baza acestor metrici calculează un scor pentru fiecare sursă și poate face auto-switching către cea mai bună.",
+      "A WPF/C# desktop application that analyses the switcher's video feeds in real time — brightness, contrast, motion and face detection. It scores each source from those metrics and can auto-switch to the best one, with waveform, vectorscope and pixel-inspector tooling for verification.",
     result:
-      "Comutare automată, obiectivă și instantanee între camere, fără operator manual. Un proiect care arată că lucrez și low-level / desktop, nu doar web și mobil.",
+      "Automatic, objective, instant switching between cameras with no manual operator — and a project that shows I work close to the metal on desktop, not only web and mobile.",
     gallery: [
       {
         src: "/case-studies/atemsuite/multiview.png",
-        alt: "ATEMSUITE — multiview live pe semnal video real, cu line waveform, vectorscope și pixel inspector",
+        alt: "ATEMSUITE — live multiview on a real video signal, with line waveform, vectorscope and pixel inspector",
       },
       {
         src: "/case-studies/atemsuite/dashboard.png",
-        alt: "Interfața ATEMSUITE cu analiză pe color bars SMPTE 100% — line waveform și vectorscope",
+        alt: "The ATEMSUITE interface analysing SMPTE 100% color bars — line waveform and vectorscope",
       },
       {
         src: "/case-studies/atemsuite/analysis.png",
-        alt: "Analiză color bars EBU R84 cu vectorscope și line waveform în ATEMSUITE",
-      },
-    ],
-  },
-  {
-    id: "ecommerce",
-    index: "04",
-    title: "E-COMMERCE",
-    status: "În progres",
-    subtitle: "Magazin online complet, livrat la cheie — setup, lansare și mentenanță continuă",
-    tags: ["E-commerce", "Storefront", "Plăți", "Performanță", "SEO", "Mentenanță"],
-    problem:
-      "Un client avea nevoie de o prezență de vânzare online completă și de încredere — gata de tranzacții din prima zi — fără să se ocupe el de partea tehnică, și de un partener care să o țină în formă pe termen lung.",
-    built:
-      "Livrez magazinul end-to-end, la cheie: arhitectura catalogului de produse, fluxul de coș și checkout, configurarea plăților și a livrării, optimizări de performanță și SEO, plus o temă ajustată fidel pe identitatea de brand a clientului — cu personalizări acolo unde e nevoie pentru a ieși din șablon.",
-    result:
-      "Proiect în desfășurare: un magazin online gata de producție, gândit pentru vânzări reale, cu mentenanță și îmbunătățiri continue. Clientul se concentrează pe business, iar partea tehnică e complet acoperită.",
-    galleryCaption: "Storefront-ul magazinului livrat",
-    gallery: [
-      {
-        src: "/case-studies/ecommerce/storefront.png",
-        alt: "Storefront-ul magazinului online livrat clientului la cheie",
+        alt: "EBU R84 color bar analysis with vectorscope and line waveform in ATEMSUITE",
       },
     ],
   },
 ];
 
-// Testimoniale — DOVADĂ SOCIALĂ (cel mai puternic levier de conversie).
-// ⚠️ Înlocuiește textele de mai jos cu citate REALE de la clienți.
-//    Nume + rol/companie reale = credibilitate. Lasă doar cele pe care le ai;
-//    secțiunea se ascunde automat dacă lista e goală.
+// Testimonials — social proof. Add real client quotes here (name + role/company).
+// The section hides itself automatically while this list is empty.
 export type Testimonial = {
   quote: string;
   name: string;
   role: string;
-  // opțional: inițiale pentru avatar (ex. "A.P."); dacă lipsesc, se generează din nume
+  // optional: avatar initials (e.g. "A.P."); generated from the name if omitted
   initials?: string;
 };
 
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "TODO: pune aici un citat real de la un client — concret, despre rezultat (ex. „A dus aplicația din MVP în App Store în X săptămâni, cu zero probleme la lansare.”).",
-    name: "Nume Client",
-    role: "Rol · Companie",
-  },
-  {
-    quote:
-      "TODO: al doilea testimonial real. Ideal menționează comunicarea, respectarea termenelor sau impactul în business.",
-    name: "Nume Client",
-    role: "Rol · Companie",
-  },
-];
+export const testimonials: Testimonial[] = [];
 
 export const services = [
   {
     title: "Web apps",
-    desc: "Aplicații web moderne, rapide și type-safe în React/TypeScript — de la landing pages la dashboard-uri complexe.",
-    points: ["React + TypeScript", "Next.js", "UI/UX la detaliu"],
+    desc: "Modern, fast, type-safe web applications in React and TypeScript — from landing pages to complex dashboards.",
+    points: ["React + TypeScript", "Next.js", "Detail-driven UI/UX"],
   },
   {
     title: "Mobile apps",
-    desc: "Aplicații mobile cross-platform în Flutter, native ca senzație, dintr-un singur codebase pentru iOS și Android.",
-    points: ["Flutter", "iOS + Android", "Performanță nativă"],
+    desc: "Cross-platform mobile apps in Flutter that feel native, from a single codebase for iOS and Android.",
+    points: ["Flutter", "iOS + Android", "Native-feeling performance"],
   },
   {
     title: "Backend / API",
-    desc: "Backend-uri robuste și scalabile în Java Spring Boot — API-uri sigure, gândite pentru producție.",
-    points: ["Java Spring Boot", "REST API", "Scalabil & sigur"],
+    desc: "Robust, scalable backends in Java Spring Boot — secure APIs designed for production.",
+    points: ["Java Spring Boot", "REST API", "Scalable & secure"],
   },
 ];

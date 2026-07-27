@@ -4,9 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 
 /**
- * Cadru de imagine cu placeholder elegant. Câtă vreme fișierul real nu există
- * în public/, se afișează un placeholder; după ce pui screenshot-ul real
- * (același path), apare imaginea automat. Înlocuiește pozele în /public.
+ * Image frame with a graceful placeholder. While the real file is missing
+ * from public/, a placeholder is shown; drop the real screenshot at the same
+ * path and the image appears automatically. Replace images in /public.
  */
 export function ImageFrame({
   src,
@@ -41,7 +41,7 @@ export function ImageFrame({
         <Placeholder label={label} alt={alt} />
       )}
 
-      {/* reflexie / shine care traversează la hover */}
+      {/* reflection / shine sweeping across on hover */}
       <div
         className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-700 ease-out group-hover/img:translate-x-[120%]"
         aria-hidden

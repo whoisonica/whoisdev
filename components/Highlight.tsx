@@ -4,9 +4,9 @@ import { type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * Evidențiază o sintagmă scurtă: text mai luminos + o subliniere cu degrade
- * care „se desenează" de la stânga la dreapta când intră în viewport.
- * La prefers-reduced-motion sublinierea apare direct, fără animație.
+ * Highlights a short phrase: brighter text plus a gradient underline that
+ * draws itself left to right when it enters the viewport.
+ * Under prefers-reduced-motion the underline appears at once, unanimated.
  */
 export function Hi({
   children,

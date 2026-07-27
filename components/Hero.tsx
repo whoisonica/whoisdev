@@ -19,7 +19,7 @@ export function Hero() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
 
-  // Parallax subtil al conținutului la scroll
+  // Subtle content parallax on scroll
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -45,14 +45,16 @@ export function Hero() {
             </span>
             <span className="font-mono text-xs tracking-wide text-text-secondary">
               <span className="text-accent">$</span>{" "}
-              <span className="text-text-primary">disponibil · 1–2 proiecte noi</span>
+              <span className="text-text-primary">
+                open to full-time remote roles
+              </span>
               <span className="mx-2 text-text-muted">·</span>
               {site.location}
             </span>
           </span>
         </LoadIn>
 
-        {/* Heading animat literă cu literă + shimmer */}
+        {/* Heading animated letter by letter + shimmer */}
         <h1 className="mt-6 flex flex-wrap items-baseline text-[clamp(2.75rem,9vw,5.75rem)] font-semibold leading-[0.95] tracking-tight">
           <span className="sr-only">{site.brand}</span>
           <span
@@ -106,7 +108,7 @@ export function Hero() {
                 "Flutter developer",
                 "React / TypeScript engineer",
                 "Java Spring Boot backend",
-                "de la idee la producție",
+                "from idea to production",
               ]}
             />
           </p>
@@ -114,10 +116,10 @@ export function Hero() {
 
         <LoadIn delay={0.45}>
           <p className="mt-3 max-w-2xl text-balance text-lg leading-relaxed text-text-secondary sm:text-xl">
-            Îți transform ideea într-un <Hi>produs real</Hi>, publicat și folosit —
-            de la primul wireframe până la deploy. Mobile cu{" "}
-            <code className="code-chip">Flutter</code>, web cu{" "}
-            <code className="code-chip">React/TS</code> și backend cu{" "}
+            I turn ideas into <Hi>real products</Hi> that ship and get used — from
+            the first wireframe to deploy. Mobile with{" "}
+            <code className="code-chip">Flutter</code>, web with{" "}
+            <code className="code-chip">React/TS</code>, backend with{" "}
             <code className="code-chip">Spring Boot</code>.
           </p>
         </LoadIn>
@@ -128,7 +130,7 @@ export function Hero() {
               href="#contact"
               className="btn-shine group inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-hover hover:shadow-glow"
             >
-              Începe un proiect
+              Get in touch
               <span
                 className="transition-transform duration-200 group-hover:translate-x-0.5"
                 aria-hidden
@@ -137,10 +139,32 @@ export function Hero() {
               </span>
             </MagneticButton>
             <a
-              href="#proiecte"
+              href="#projects"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-text-primary backdrop-blur transition-colors duration-200 hover:border-accent/40 hover:text-accent"
             >
-              Vezi rezultate
+              View projects
+            </a>
+            <a
+              href={site.cvUrl}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface/60 px-6 py-3.5 text-sm font-medium text-text-primary backdrop-blur transition-colors duration-200 hover:border-accent/40 hover:text-accent"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              Download CV
             </a>
           </div>
         </LoadIn>
@@ -148,14 +172,14 @@ export function Hero() {
         <LoadIn delay={0.66}>
           <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-text-muted">
             <li className="flex items-center gap-1.5">
-              <span className="text-accent">✓</span> 2 apps live în App Store &amp;
+              <span className="text-accent">✓</span> 2 apps live on App Store &amp;
               Google Play
             </li>
             <li className="flex items-center gap-1.5">
-              <span className="text-accent">✓</span> 10M+ înregistrări integrate
+              <span className="text-accent">✓</span> 10M+ records integrated
             </li>
             <li className="flex items-center gap-1.5">
-              <span className="text-accent">✓</span> răspuns în 24h
+              <span className="text-accent">✓</span> replies within 24h
             </li>
           </ul>
         </LoadIn>
@@ -167,7 +191,7 @@ export function Hero() {
         </LoadIn>
       </motion.div>
 
-      {/* indicator scroll discret */}
+      {/* subtle scroll indicator */}
       <motion.div
         aria-hidden
         initial={reduce ? false : { opacity: 0 }}

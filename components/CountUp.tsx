@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 
 /**
- * Animă numărul dintr-un string (ex. "10M+", "2+ ani", "4") de la 0 la valoare
- * când intră în viewport. Păstrează prefixul/sufixul ne-numeric intact.
+ * Animates the number inside a string (e.g. "10M+", "1.5 yrs", "4") from 0 to
+ * its value on entering the viewport, keeping any non-numeric prefix/suffix.
  *
- * - Fără layout shift: valoarea finală e randată invizibil ca să rezerve lățimea,
- *   iar numărul care se animă stă deasupra (cifre tabulare = fără „salturi").
- * - Fără mismatch la hidratare: pornește mereu de la 0 pe server și client;
- *   animația / valoarea finală se setează abia într-un effect (doar pe client).
+ * - No layout shift: the final value is rendered invisibly to reserve width,
+ *   with the animating number layered on top (tabular figures = no jitter).
+ * - No hydration mismatch: always starts at 0 on both server and client; the
+ *   animation and final value are set in an effect (client only).
  */
 export function CountUp({
   value,
@@ -27,7 +27,7 @@ export function CountUp({
 
   const match = value.match(/(\d+(?:[.,]\d+)?)/);
 
-  // Valori ne-numerice: randăm textul ca atare, fără animație.
+  // Non-numeric values: render the text as-is, with no animation.
   if (!match) {
     return <span className={className}>{value}</span>;
   }
@@ -82,7 +82,7 @@ function Animated({
     const t0 = performance.now();
     const tick = (now: number) => {
       const p = Math.min((now - t0) / duration, 1);
-      // easeOutExpo — finalul „aterizează" elegant
+      // easeOutExpo — the ending lands gracefully
       const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
       setDisplay(target * eased);
       if (p < 1) raf = requestAnimationFrame(tick);
@@ -96,11 +96,11 @@ function Animated({
       ref={hostRef}
       className={`relative inline-grid tabular-nums ${className ?? ""}`}
     >
-      {/* placeholder invizibil — rezervă lățimea valorii finale (anti-jitter) */}
+      {/* invisible placeholder — reserves the final value's width (anti-jitter) */}
       <span aria-hidden className="invisible col-start-1 row-start-1">
         {value}
       </span>
-      {/* valoarea care se animă, suprapusă peste placeholder */}
+      {/* the animating value, layered over the placeholder */}
       <span className="col-start-1 row-start-1">
         {start}
         {display.toFixed(decimals)}

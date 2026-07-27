@@ -4,10 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 /**
- * Cadru de telefon pentru screenshot-uri în portret (ex. app Flutter JOBBIN).
- * Ecranul are raport ~9/19.5, deci screenshot-urile de telefon intră aproape
- * perfect. `delay` + `float` dau o intrare/plutire subtilă (oprite la
- * prefers-reduced-motion prin regula globală din globals.css).
+ * Phone frame for portrait screenshots (e.g. the JOBBIN Flutter app).
+ * The screen is ~9/19.5, so phone screenshots fit almost exactly.
+ * `delay` and `float` add a subtle entrance and drift (both suppressed under
+ * prefers-reduced-motion via the global rule in globals.css).
  */
 export function PhoneFrame({
   src,
@@ -29,7 +29,7 @@ export function PhoneFrame({
       className={`group/phone relative shrink-0 ${width}`}
       style={float ? { animation: "float-slow 6s ease-in-out infinite" } : undefined}
     >
-      {/* glow în spate */}
+      {/* glow behind */}
       <div
         className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-accent/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover/phone:opacity-100"
         aria-hidden
