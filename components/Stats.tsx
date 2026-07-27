@@ -3,7 +3,7 @@ import { CountUp } from "./CountUp";
 
 const stats = [
   { value: "10M+", label: "Records integrated", sub: "Hotel inventory at scale" },
-  { value: "3", label: "End-to-end products", sub: "Mobile · web · backend · desktop" },
+  { value: "4", label: "End-to-end products", sub: "Mobile · web · backend · desktop" },
   { value: "2", label: "Apps published", sub: "App Store & Google Play" },
   { value: "1.5 yrs", label: "Java backend in production", sub: "Spring Boot, real teams" },
 ];

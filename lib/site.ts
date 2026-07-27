@@ -197,8 +197,45 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    id: "ecoregistru",
+    id: "tripstaxhotels",
     index: "02",
+    title: "TRIPSTAXHOTELS",
+    subtitle: "Hotel inventory aggregation at scale — Java / Spring Boot backend",
+    tags: ["Java", "Spring Boot", "REST API", "Booking.com API", "JSON", "Postman"],
+    role: {
+      title: "Junior Java Spring Boot Developer · TechQuarter",
+      period: "Oct 2024 – Feb 2026 · Cluj-Napoca",
+      summary:
+        "Sixteen months on TripstaxHotels: I worked directly with clients to turn requirements into technical specifications and built backend features alongside cross-functional teams (frontend, QA, product).",
+    },
+    problem:
+      "The platform needed a vast, continuously refreshed hotel inventory — over 10 million properties from Booking.com — imported automatically and reliably into the backend, with no manual intervention.",
+    built:
+      "I implemented the automated import pipeline in the Java / Spring Boot backend end to end: API calls, JSON parsing and mapping, and testing with Postman. I also debugged complex production issues and integrated new features working alongside cross-functional teams.",
+    result:
+      "Over 10 million hotels imported automatically, and measurably more stable releases — sixteen months of professional backend experience on a Java system operating at real scale.",
+    highlights: [
+      {
+        title: "Automated 10M+ hotel import",
+        desc: "The full Booking.com import flow over their API — calls, JSON parsing and mapping, verified with Postman.",
+      },
+      {
+        title: "Requirements → specifications",
+        desc: "Worked directly with clients to translate business requirements into technical implementation specs.",
+      },
+      {
+        title: "Debugging & stability",
+        desc: "Diagnosed and resolved complex software issues, contributing directly to more stable product releases.",
+      },
+      {
+        title: "Cross-functional teams",
+        desc: "Integrated new features smoothly while working with frontend, QA and product.",
+      },
+    ],
+  },
+  {
+    id: "ecoregistru",
+    index: "03",
     title: "ECOREGISTRU",
     status: "In progress",
     subtitle: "Multi-tenant compliance SaaS — Spring Boot / React · Solo build",
@@ -244,7 +281,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "atemsuite",
-    index: "03",
+    index: "04",
     title: "ATEMSUITE",
     subtitle: "Real-time video analysis — WPF / C# desktop · Engineering thesis",
     tags: ["C#", "WPF", "MVVM", "OpenCV", "Computer Vision", "Real-time"],
