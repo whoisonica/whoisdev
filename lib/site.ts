@@ -14,7 +14,7 @@ export const site = {
   cvUrl: "/Andrei-Onica-CV.pdf",
   socials: {
     github: "https://github.com/whoisonica",
-    linkedin: "https://www.linkedin.com/in/whoisdev",
+    linkedin: "https://www.linkedin.com/in/whoisonica",
   },
 };
 
