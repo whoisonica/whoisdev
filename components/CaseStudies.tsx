@@ -47,6 +47,60 @@ function Step({ label, children }: { label: string; children: string }) {
   );
 }
 
+const LinkIcon = ({ kind }: { kind?: string }) => {
+  const common = { width: 14, height: 14, "aria-hidden": true } as const;
+  if (kind === "github")
+    return (
+      <svg {...common} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.42.37.8 1.1.8 2.22v3.29c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
+      </svg>
+    );
+  if (kind === "apple")
+    return (
+      <svg {...common} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16.37 12.77c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.1-2.02-3.77-2.05-1.6-.16-3.13.94-3.94.94-.82 0-2.07-.92-3.4-.9-1.75.03-3.36 1.02-4.26 2.58-1.82 3.15-.47 7.81 1.3 10.37.87 1.25 1.9 2.66 3.26 2.61 1.31-.05 1.8-.85 3.39-.85 1.58 0 2.03.85 3.41.82 1.41-.02 2.3-1.28 3.16-2.54.99-1.45 1.4-2.86 1.42-2.93-.03-.01-2.73-1.05-2.76-4.14ZM13.9 4.66c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.09 3.18 1.15.09 2.32-.58 3.04-1.45Z" />
+      </svg>
+    );
+  if (kind === "play")
+    return (
+      <svg {...common} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3.6 1.84a1.5 1.5 0 0 0-.6 1.2v17.92c0 .48.23.92.6 1.2l10.03-10.16L3.6 1.84Zm11.6 8.02 2.9-2.94-9.9-5.6a1.5 1.5 0 0 0-.6-.18l7.6 8.72Zm0 4.28-7.6 8.72c.2-.02.41-.08.6-.19l9.9-5.6-2.9-2.93Zm4.28-2.31-2.33-1.32-3.16 3.2 3.16 3.2 2.33-1.32c1.1-.62 1.1-2.14 0-2.76Z" />
+      </svg>
+    );
+  return (
+    <svg {...common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <path d="M15 3h6v6" />
+      <path d="M10 14 21 3" />
+    </svg>
+  );
+};
+
+function CaseStudyLinks({ links }: { links: NonNullable<CaseStudy["links"]> }) {
+  return (
+    <div className="mt-6 flex flex-wrap items-center gap-2.5">
+      {links.map((l) => (
+        <a
+          key={l.href}
+          href={l.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-3.5 py-2 text-sm text-text-secondary transition-colors duration-200 hover:border-accent/40 hover:bg-surface-2 hover:text-accent"
+        >
+          <LinkIcon kind={l.icon} />
+          {l.label}
+          <span
+            aria-hidden
+            className="text-text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
+          >
+            →
+          </span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function CaseStudyBlock({ study }: { study: CaseStudy }) {
   return (
     <article className="scroll-mt-28" id={study.id}>
@@ -67,6 +121,9 @@ function CaseStudyBlock({ study }: { study: CaseStudy }) {
                 ) : null}
               </div>
               <p className="mt-1.5 text-sm text-text-secondary">{study.subtitle}</p>
+              {study.links && study.links.length > 0 ? (
+                <CaseStudyLinks links={study.links} />
+              ) : null}
             </div>
           </div>
           <ul className="flex flex-wrap gap-2">

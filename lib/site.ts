@@ -44,6 +44,8 @@ export type CaseStudy = {
   status?: string;
   tags: string[];
   role?: { title: string; period: string; summary: string };
+  /** Outbound proof: live product, store listings, source code. */
+  links?: { label: string; href: string; icon?: "external" | "apple" | "play" | "github" }[];
   problem: string;
   built: string;
   result: string;
@@ -88,6 +90,19 @@ export const caseStudies: CaseStudy[] = [
       summary:
         "I joined a three-app product at MVP stage and drove it to public launch over six months. I'm the sole developer on the Flutter candidate app (199 of 204 commits), I own the React employer dashboard (190 of 268), and I ship backend features alongside the original author (163 of 389).",
     },
+    links: [
+      { label: "jobbin.ro", href: "https://jobbin.ro", icon: "external" },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/ro/app/jobbin/id6498889490",
+        icon: "apple",
+      },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=ro.jobbin.jobbin_candidate_new",
+        icon: "play",
+      },
+    ],
     problem:
       "The product was an MVP: three applications that needed to reach production, with a dated and inconsistent interface, no monetization, no real notifications, and no security hardening. It had to go from prototype to something publishable in the app stores.",
     built:
@@ -254,6 +269,13 @@ export const caseStudies: CaseStudy[] = [
       summary:
         "Designed and built end to end: architecture, backend, frontend and tests. Domain requirements validated with compliance-reporting specialists.",
     },
+    links: [
+      {
+        label: "Source on GitHub",
+        href: "https://github.com/whoisonica/ecoregistru",
+        icon: "github",
+      },
+    ],
     problem:
       "Romanian waste operators are legally required to keep monthly waste-management records and file SIM/AFM reports. Most still do it in spreadsheets — error-prone, impossible to audit, and painful when an inspection arrives.",
     built:
@@ -285,6 +307,13 @@ export const caseStudies: CaseStudy[] = [
     title: "ATEMSUITE",
     subtitle: "Real-time video analysis — WPF / C# desktop · Engineering thesis",
     tags: ["C#", "WPF", "MVVM", "OpenCV", "Computer Vision", "Real-time"],
+    links: [
+      {
+        label: "Source on GitHub",
+        href: "https://github.com/whoisonica/AtemSuite",
+        icon: "github",
+      },
+    ],
     problem:
       "A Blackmagic ATEM Mini switcher carries several video sources, but switching between them by hand is slow and subjective. What was needed was a tool that analyses the sources live and makes an objective call about which camera goes on air.",
     built:
