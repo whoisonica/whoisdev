@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG card source</title>
+<!--
+  Source for public/og.png — the card shown when the site is shared on
+  LinkedIn, WhatsApp, Slack, etc.
+
+  Regenerate after editing:
+    chrome --headless=new --disable-gpu --hide-scrollbars \
+           --window-size=1200,630 --screenshot=public/og.png \
+           design/og-card.html
+
+  (Kept as a static file on purpose: the next/og edge route rendered an empty
+  image in production, and a broken preview card is worse than no card.)
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px}
+  body{
+    background:#0A0A0B;
+    background-image:radial-gradient(1000px 500px at 15% -5%, rgba(91,141,239,.28) 0%, rgba(10,10,11,0) 62%);
+    color:#F2F4F7;
+    font-family:"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    padding:76px 80px;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .grid{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+    background-size:64px 64px;
+  }
+  .inner{position:relative}
+  .domain{display:flex;align-items:center;gap:14px;font-size:25px;color:#5B8DEF;letter-spacing:.6px;
+          font-family:"Cascadia Mono",Consolas,"Courier New",monospace}
+  .dot{width:12px;height:12px;border-radius:999px;background:#5B8DEF;box-shadow:0 0 18px rgba(91,141,239,.9)}
+  h1{font-size:86px;font-weight:700;letter-spacing:-2.4px;line-height:1.02;margin-top:26px}
+  .role{font-size:38px;color:#A8B0BC;margin-top:12px;font-weight:400}
+  .stack{display:flex;gap:13px;margin-top:42px;flex-wrap:wrap}
+  .chip{
+    font-size:25px;color:#D5DBE5;border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.045);border-radius:11px;padding:11px 21px;
+  }
+  .avail{display:flex;align-items:center;gap:12px;font-size:26px;color:#8A93A0;margin-top:42px}
+  .pulse{width:10px;height:10px;border-radius:999px;background:#5B8DEF}
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="inner">
+    <div class="domain"><span class="dot"></span>whoisdev.vercel.app</div>
+    <h1>Andrei-Vlad Onica</h1>
+    <div class="role">Full-stack engineer · Oradea, Romania</div>
+    <div class="stack">
+      <span class="chip">Flutter</span>
+      <span class="chip">React + TypeScript</span>
+      <span class="chip">Java Spring Boot</span>
+      <span class="chip">PostgreSQL</span>
+    </div>
+    <div class="avail"><span class="pulse"></span>Open to full-time roles or B2B contracts</div>
+  </div>
+</body>
+</html>

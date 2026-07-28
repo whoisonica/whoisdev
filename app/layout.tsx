@@ -43,11 +43,22 @@ export const metadata: Metadata = {
     siteName: site.brand,
     title: `${site.name} — ${site.role}`,
     description: site.description,
+    // Static file rather than a next/og route: the edge route rendered an
+    // empty image in production. Source: design/og-card.html.
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — ${site.role}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.role}`,
     description: site.description,
+    images: ["/og.png"],
   },
   robots: {
     index: true,
