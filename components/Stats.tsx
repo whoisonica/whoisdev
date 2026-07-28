@@ -3,9 +3,17 @@ import { CountUp } from "./CountUp";
 
 const stats = [
   { value: "10M+", label: "Records integrated", sub: "Hotel inventory at scale" },
-  { value: "4", label: "End-to-end products", sub: "Mobile · web · backend · desktop" },
-  { value: "2", label: "Apps published", sub: "App Store & Google Play" },
-  { value: "1.5 yrs", label: "Java backend in production", sub: "Spring Boot, real teams" },
+  {
+    value: "3",
+    label: "Products built end to end",
+    sub: "Jobbin · EcoRegistru · AtemSuite",
+  },
+  {
+    value: "2 stores",
+    label: "Jobbin app live",
+    sub: "iOS on the App Store, Android on Google Play",
+  },
+  { value: "16 mo", label: "Java backend in production", sub: "Spring Boot, real teams" },
 ];
 
 export function Stats() {

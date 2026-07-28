@@ -66,9 +66,39 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Structured data: helps searches for my name resolve to this page.
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.name,
+    jobTitle: site.role,
+    email: `mailto:${site.email}`,
+    url: site.url,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Oradea",
+      addressCountry: "RO",
+    },
+    sameAs: [site.socials.github, site.socials.linkedin],
+    knowsAbout: [
+      "Flutter",
+      "Dart",
+      "React",
+      "TypeScript",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Next.js",
+    ],
+  };
+
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="bg-bg text-text-primary font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
         <div className="noise-overlay" aria-hidden />
         <CursorGlow />
         <a

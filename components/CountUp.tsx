@@ -9,8 +9,10 @@ import { useInView, useReducedMotion } from "framer-motion";
  *
  * - No layout shift: the final value is rendered invisibly to reserve width,
  *   with the animating number layered on top (tabular figures = no jitter).
- * - No hydration mismatch: always starts at 0 on both server and client; the
- *   animation and final value are set in an effect (client only).
+ * - No hydration mismatch: server and first client render both show the final
+ *   value; the count-up starts from 0 only once the effect runs, so anything
+ *   reading the HTML without executing JS (crawlers, link previews, ATS
+ *   scrapers) sees the real number instead of a zero.
  */
 export function CountUp({
   value,
@@ -70,12 +72,17 @@ function Animated({
   const start = value.slice(0, index);
   const end = value.slice(index + raw.length);
 
-  const [display, setDisplay] = useState(0);
+  // Starts at the final value so the server-rendered HTML carries the real
+  // number; the effect below rewinds to 0 and animates up, client-side only.
+  const [display, setDisplay] = useState(target);
 
   useEffect(() => {
-    if (!inView) return;
     if (reduce) {
       setDisplay(target);
+      return;
+    }
+    if (!inView) {
+      setDisplay(0);
       return;
     }
     let raf = 0;

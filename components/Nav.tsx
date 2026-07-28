@@ -8,7 +8,6 @@ const links = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -106,6 +105,13 @@ export function Nav() {
             );
           })}
           <a
+            href={site.cvUrl}
+            download
+            className="rounded-md px-3 py-2 text-sm text-text-secondary transition-colors hover:text-text-primary"
+          >
+            CV
+          </a>
+          <a
             href="#contact"
             className="ml-2 rounded-md border border-accent/40 bg-accent/10 px-3.5 py-2 text-sm font-medium text-accent transition-colors hover:border-accent/60 hover:bg-accent/20"
           >
@@ -163,6 +169,14 @@ export function Nav() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={site.cvUrl}
+              download
+              onClick={() => setOpen(false)}
+              className="block rounded-lg px-4 py-3 text-base text-text-secondary transition-colors hover:bg-surface-2 hover:text-text-primary"
+            >
+              Download CV
+            </a>
             <a
               href="#contact"
               onClick={() => setOpen(false)}

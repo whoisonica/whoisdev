@@ -45,9 +45,7 @@ export function Hero() {
             </span>
             <span className="font-mono text-xs tracking-wide text-text-secondary">
               <span className="text-accent">$</span>{" "}
-              <span className="text-text-primary">
-                open to full-time remote roles
-              </span>
+              <span className="text-text-primary">{site.availability}</span>
               <span className="mx-2 text-text-muted">·</span>
               {site.location}
             </span>
@@ -99,8 +97,16 @@ export function Hero() {
           <span aria-hidden className="caret ml-[0.15em] self-center" />
         </h1>
 
+        <LoadIn delay={0.35}>
+          <p className="mt-6 text-lg font-medium tracking-tight text-text-primary sm:text-xl">
+            {site.name}
+            <span className="mx-2.5 text-text-muted">—</span>
+            <span className="text-text-secondary">{site.role}</span>
+          </p>
+        </LoadIn>
+
         <LoadIn delay={0.4}>
-          <p className="mt-6 font-mono text-sm text-text-muted">
+          <p className="mt-3 font-mono text-sm text-text-muted">
             <span className="text-accent/60">{"//"}</span>{" "}
             <Typewriter
               className="text-text-secondary"
@@ -172,8 +178,8 @@ export function Hero() {
         <LoadIn delay={0.66}>
           <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs text-text-muted">
             <li className="flex items-center gap-1.5">
-              <span className="text-accent">✓</span> 2 apps live on App Store &amp;
-              Google Play
+              <span className="text-accent">✓</span> shipped an app to the App Store
+              &amp; Google Play
             </li>
             <li className="flex items-center gap-1.5">
               <span className="text-accent">✓</span> 10M+ records integrated

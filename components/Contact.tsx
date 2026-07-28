@@ -14,6 +14,14 @@ const LinkedInIcon = () => (
   </svg>
 );
 
+const DownloadIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <path d="M7 10l5 5 5-5" />
+    <path d="M12 15V3" />
+  </svg>
+);
+
 const MailIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden>
     <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -43,12 +51,13 @@ export function Contact() {
               Let&apos;s build something together.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg">
-              Looking for a full-stack engineer, or want to talk through a
-              product? Send me a few lines about it and I&apos;ll get back to you with
-              a <Hi>straight answer</Hi>.
+              Hiring a full-stack engineer, or looking for a contractor to build
+              something? Send me a few lines about it and I&apos;ll get back to you
+              with a <Hi>straight answer</Hi>.
             </p>
             <p className="mt-3 font-mono text-xs text-text-muted">
-              <span className="text-accent">●</span> Open to full-time remote roles
+              <span className="text-accent">●</span> Open to full-time roles and B2B
+              contracts
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -66,7 +75,7 @@ export function Contact() {
                 <span className="text-accent">✓</span> Replies within 24h
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-accent">✓</span> Available immediately
+                <span className="text-accent">✓</span> Employment or B2B invoicing
               </li>
               <li className="flex items-center gap-1.5">
                 <span className="text-accent">✓</span> Remote / hybrid / relocation
@@ -91,6 +100,14 @@ export function Contact() {
               >
                 <LinkedInIcon />
                 LinkedIn
+              </a>
+              <a
+                href={site.cvUrl}
+                download
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-3 text-sm font-medium text-text-primary transition-colors duration-200 hover:border-accent/40 hover:text-accent"
+              >
+                <DownloadIcon />
+                Download CV
               </a>
             </div>
           </div>

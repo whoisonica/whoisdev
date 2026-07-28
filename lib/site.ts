@@ -9,8 +9,10 @@ export const site = {
   url: "https://whoisdev.vercel.app",
   tagline: "I build products from idea to production.",
   description:
-    "Full-stack engineer based in Oradea, Romania. I build mobile apps (Flutter), web apps (React/TypeScript) and backends (Java Spring Boot) — from idea to production.",
+    "Full-stack engineer based in Oradea, Romania. I build mobile apps (Flutter), web apps (React/TypeScript) and backends (Java Spring Boot) — from idea to production. Open to full-time roles and B2B contracts.",
   email: "whoisonica@gmail.com",
+  /** One line, used in the hero badge and the contact section. */
+  availability: "open to full-time roles or B2B contracts",
   cvUrl: "/Andrei-Onica-CV.pdf",
   socials: {
     github: "https://github.com/whoisonica",
@@ -305,8 +307,8 @@ export const caseStudies: CaseStudy[] = [
     id: "atemsuite",
     index: "04",
     title: "ATEMSUITE",
-    subtitle: "Real-time video analysis — WPF / C# desktop · Engineering thesis",
-    tags: ["C#", "WPF", "MVVM", "OpenCV", "Computer Vision", "Real-time"],
+    subtitle: "Real-time video analysis and ATEM control — WPF / C# desktop · Engineering thesis",
+    tags: ["C#", ".NET 8", "WPF", "MVVM", "OpenCV", "LibAtem", "Real-time"],
     links: [
       {
         label: "Source on GitHub",
@@ -315,11 +317,11 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     problem:
-      "A Blackmagic ATEM Mini switcher carries several video sources, but switching between them by hand is slow and subjective. What was needed was a tool that analyses the sources live and makes an objective call about which camera goes on air.",
+      "An operator on a Blackmagic ATEM Mini judges the picture by eye on a preview monitor and drives the switcher from the hardware panel — two separate places, and no objective read on the signal itself. What was needed was one window: the live feed, real measurements of it, and control of the switcher.",
     built:
-      "A WPF/C# desktop application that analyses the switcher's video feeds in real time — brightness, contrast, motion and face detection. It scores each source from those metrics and can auto-switch to the best one, with waveform, vectorscope and pixel-inspector tooling for verification.",
+      "A WPF/C# desktop application on .NET 8. It captures the feed and computes broadcast scopes per frame with OpenCV — line waveform (512 samples, per channel), vectorscope, pixel inspector and a motion overlay — plus a generator for SMPTE and EBU R84 reference bars to verify the scopes against a known signal. It finds ATEM switchers on the network itself: a parallel ICMP sweep followed by a real protocol handshake over UDP 9910 through LibAtem, so identification never depends on DNS and a direct link-local cable still works. Then it drives them: program/preview, cut, auto, fade-to-black, transition T-bar. Recording is H.264/MP4, with an event log flushed to CSV.",
     result:
-      "Automatic, objective, instant switching between cameras with no manual operator — and a project that shows I work close to the metal on desktop, not only web and mobile.",
+      "One window instead of three, and measurements instead of opinions — the operator sees waveform and vectorscope next to the feed and switches from the same screen. It is also the project where I work closest to the metal: real-time frame processing, a network protocol handshake and desktop UI, none of which is web or mobile.",
     gallery: [
       {
         src: "/case-studies/atemsuite/multiview.png",
