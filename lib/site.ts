@@ -88,9 +88,9 @@ export const caseStudies: CaseStudy[] = [
     ],
     role: {
       title: "Full-Stack Developer · Jobbin",
-      period: "February 2026 – present",
+      period: "January 2026 – present",
       summary:
-        "I joined a three-app product at MVP stage and drove it to public launch over six months. I'm the sole developer on the Flutter candidate app (199 of 204 commits), I own the React employer dashboard (190 of 268), and I ship backend features alongside the original author (163 of 389).",
+        "I joined a three-app product at MVP stage and drove it to public launch over seven months. I'm the sole developer on the Flutter candidate app (199 of 204 commits), I own the React employer dashboard (190 of 268), and I ship backend features alongside the original author (163 of 389).",
     },
     links: [
       { label: "jobbin.ro", href: "https://jobbin.ro", icon: "external" },
@@ -221,16 +221,16 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Java", "Spring Boot", "REST API", "Booking.com API", "JSON", "Postman"],
     role: {
       title: "Junior Java Spring Boot Developer · TechQuarter",
-      period: "Oct 2024 – Feb 2026 · Cluj-Napoca",
+      period: "Sept 2023 – Feb 2026 · Cluj-Napoca",
       summary:
-        "Sixteen months on TripstaxHotels: I worked directly with clients to turn requirements into technical specifications and built backend features alongside cross-functional teams (frontend, QA, product).",
+        "Two and a half years on TripstaxHotels: I worked directly with clients to turn requirements into technical specifications and built backend features alongside cross-functional teams (frontend, QA, product).",
     },
     problem:
       "The platform needed a vast, continuously refreshed hotel inventory — over 10 million properties from Booking.com — imported automatically and reliably into the backend, with no manual intervention.",
     built:
       "I implemented the automated import pipeline in the Java / Spring Boot backend end to end: API calls, JSON parsing and mapping, and testing with Postman. I also debugged complex production issues and integrated new features working alongside cross-functional teams.",
     result:
-      "Over 10 million hotels imported automatically, and measurably more stable releases — sixteen months of professional backend experience on a Java system operating at real scale.",
+      "Over 10 million hotels imported automatically, and measurably more stable releases — two and a half years of professional backend experience on a Java system operating at real scale.",
     highlights: [
       {
         title: "Automated 10M+ hotel import",

@@ -13,7 +13,7 @@ const stats = [
     label: "Jobbin app live",
     sub: "iOS on the App Store, Android on Google Play",
   },
-  { value: "16 mo", label: "Java backend in production", sub: "Spring Boot, real teams" },
+  { value: "2.5 yrs", label: "Java backend in production", sub: "Spring Boot, real teams" },
 ];
 
 export function Stats() {
